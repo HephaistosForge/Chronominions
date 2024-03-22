@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://df6x0nfos3bkv"]
+
+[ext_resource type="Script" path="res://game_objects/map/epoch_map/epoch_map.gd" id="1_nge7n"]
+[ext_resource type="PackedScene" uid="uid://c0vuapdbkifok" path="res://game_objects/map/epoch_map/epoch_tile_map/epoch_tile_map.tscn" id="2_4d586"]
+
+[node name="EpochMap" type="Node2D"]
+script = ExtResource("1_nge7n")
+
+[node name="EpochTileMap" parent="." instance=ExtResource("2_4d586")]
+
+[node name="EpochTileMap2" parent="." instance=ExtResource("2_4d586")]
+visible = false
+modulate = Color(1, 0.0588235, 0.129412, 1)
+
+[node name="EpochTileMap3" parent="." instance=ExtResource("2_4d586")]
+visible = false
+modulate = Color(0, 0.32549, 1, 1)

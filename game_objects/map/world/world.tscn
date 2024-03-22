@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://iup344dbdef3"]
+
+[ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_hw6gv"]
+[ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
+
+[node name="World" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("1_hw6gv")
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = -64.0
+offset_bottom = 64.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("1_hw6gv")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.7, 0.7)
+
+[node name="EpochMap" parent="." instance=ExtResource("1_uahcf")]
+position = Vector2(0, -150)
+
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="EpochMap" method="blend_to_previous"]
+[connection signal="pressed" from="CanvasLayer/TextureButton2" to="EpochMap" method="blend_to_next"]
