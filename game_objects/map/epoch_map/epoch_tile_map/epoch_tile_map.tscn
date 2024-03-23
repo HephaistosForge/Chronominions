@@ -626,7 +626,7 @@ custom_data_layer_0/name = "tile_type"
 custom_data_layer_0/type = 2
 sources/3 = SubResource("TileSetAtlasSource_jq7lb")
 
-[node name="EpochTileMap" type="TileMap"]
+[node name="EpochTileMap" type="TileMap" groups=["epoch_tile_map"]]
 y_sort_enabled = true
 scale = Vector2(8, 8)
 tile_set = SubResource("TileSet_utw02")

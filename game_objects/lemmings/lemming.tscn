@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr30mnu7112jh"]
+[gd_scene load_steps=12 format=3 uid="uid://cr30mnu7112jh"]
 
 [ext_resource type="Script" path="res://game_objects/lemmings/lemming.gd" id="1_db08k"]
 [ext_resource type="Texture2D" uid="uid://djcesm0mq6yg0" path="res://game_objects/lemmings/sprite.png" id="2_eackk"]
@@ -130,10 +130,26 @@ tracks/0/keys = {
 "values": [Rect2(80, 24, 16, 24), Rect2(80, 48, 16, 24), Rect2(80, 72, 16, 24), Rect2(80, 48, 16, 24)]
 }
 
+[sub_resource type="Animation" id="Animation_t7mla"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gcv2c"]
 _data = {
 "RESET": SubResource("Animation_0ipbq"),
 "die": SubResource("Animation_cqgyx"),
+"spawn": SubResource("Animation_t7mla"),
 "walk_ne": SubResource("Animation_hxcxv"),
 "walk_nw": SubResource("Animation_yaxm3"),
 "walk_se": SubResource("Animation_cuncu"),
@@ -161,4 +177,5 @@ metadata/_edit_lock_ = true
 libraries = {
 "": SubResource("AnimationLibrary_gcv2c")
 }
+autoplay = "spawn"
 speed_scale = 2.0

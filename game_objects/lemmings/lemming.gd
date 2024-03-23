@@ -18,6 +18,10 @@ var direction: Vector2 = Globals.NE:
 func _ready():
 	world = get_tree().get_first_node_in_group("world")
 	world.epoch_map.epoch_changed.connect(set_visibility)
+	var tween = create_tween()
+	self.scale = Vector2.ZERO
+	tween.tween_property(self, "scale", Vector2(1, 1), 0.4) \
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 
 
 func _physics_process(delta):
@@ -32,6 +36,10 @@ func _physics_process(delta):
 		
 	if lemming_epoch_map.is_on_mountain(self):
 		self.bounce()
+		
+	var new_direction = lemming_epoch_map.new_direction_if_on_direction_marker(self)
+	if new_direction != null:
+		direction = new_direction
 		
 	
 		
