@@ -4,28 +4,42 @@ class_name Lemming extends CharacterBody2D
 @onready var time_gates: Array
 @export var own_epoch: Globals.Epoch
 
-var direction: Vector2 = Globals.NE
+var direction: Vector2 = Globals.NE:
+	set(new_direction):
+		direction = new_direction
+		var animation_name = {
+			Globals.NE: "walk_ne",
+			Globals.NW: "walk_nw",
+			Globals.SW: "walk_sw",
+			Globals.SE: "walk_se",
+		}[direction]
+		$AnimationPlayer.play(animation_name)
+
 
 func _ready():
 	world = get_tree().get_first_node_in_group("world")
 	world.epoch_map.epoch_changed.connect(set_visibility)
-	
-	var animation_name = {
-		Globals.NE: "walk_ne",
-		Globals.NW: "walk_nw",
-		Globals.SW: "walk_sw",
-		Globals.SE: "walk_se",
-	}[direction]
-	$AnimationPlayer.play(animation_name)
-	
+
 
 
 func _physics_process(delta):
 	move_and_collide(direction) 
-	var curr_epoch_map = world.epoch_map.get_current_epoch_map()
-	if not curr_epoch_map.is_on_tile(self):
+	var lemming_epoch_map = world.epoch_map.get_epoch_map_from_epoch_enum(own_epoch)
+	if not lemming_epoch_map.is_on_tile(self):
 		self.die()
-
+		return
+		
+	if lemming_epoch_map.is_on_water(self):
+		self.die()
+		
+	if lemming_epoch_map.is_on_mountain(self):
+		self.bounce()
+		
+	
+		
+		
+func bounce():
+	direction = -direction
 
 func die():
 	# Animation player queue_frees lemming

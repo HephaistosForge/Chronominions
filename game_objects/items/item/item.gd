@@ -15,5 +15,6 @@ func _init(
 		self.sprite_texture = _sprite_texture
 
 
-func execute_item_action():
+func execute_item_action(epoch_map: TileMap) -> bool:
 	push_warning("not implemented")
+	return false

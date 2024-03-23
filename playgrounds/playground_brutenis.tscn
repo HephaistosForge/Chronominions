@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://b55t231vj8k72"]
+[gd_scene load_steps=6 format=3 uid="uid://dnrtyqbtemwtl"]
 
-[node name="PlaygroundBrutenis" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_vewa4"]
+[ext_resource type="PackedScene" uid="uid://bnmtihuiugbgs" path="res://game_objects/lemming_despawner/lemming_despawner.tscn" id="2_5y2ms"]
+[ext_resource type="PackedScene" uid="uid://cfiv0ufmapcy1" path="res://game_objects/lemming_spawner/lemming_spawner.tscn" id="3_n47ma"]
+[ext_resource type="PackedScene" path="res://game_objects/pickups/bomb_pickup.tscn" id="4_hq7w2"]
+[ext_resource type="PackedScene" uid="uid://bs4myl8m7nn2p" path="res://game_objects/direction_marker/direction_marker.tscn" id="5_qvf6e"]
+
+[node name="PlaygroundChristoph" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_vewa4")]
+position = Vector2(1641, 653.5)
+
+[node name="EpochTileMap" parent="World/EpochMap" index="0"]
+epoch = -1
+
+[node name="LemmingDespawner" parent="World/EpochMap/EpochTileMap" index="0" instance=ExtResource("2_5y2ms")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-7.375, -38.0625)
+monitoring = false
+epoch = -1
+
+[node name="LemmingSpawner" parent="World/EpochMap/EpochTileMap" index="1" instance=ExtResource("3_n47ma")]
+position = Vector2(0, 0.0625)
+scale = Vector2(0.125, 0.125)
+
+[node name="BombPickup" parent="World/EpochMap/EpochTileMap" index="2" instance=ExtResource("4_hq7w2")]
+z_index = 1
+position = Vector2(30.875, -17.1875)
+
+[node name="EpochTileMap3" parent="World/EpochMap" index="2"]
+epoch = 1
+
+[node name="DirectionMarker" parent="." instance=ExtResource("5_qvf6e")]
+position = Vector2(1403, 632)
+
+[node name="DirectionMarker2" parent="." instance=ExtResource("5_qvf6e")]
+position = Vector2(1112, 500)
+direction = 1
+
+[editable path="World"]
+[editable path="World/EpochMap"]
