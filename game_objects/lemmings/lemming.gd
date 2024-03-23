@@ -58,8 +58,8 @@ func die():
 	
 
 func set_visibility():
-	print("Current World Epoch: ",world.epoch_map.get_current_epoch())
-	print("Own Epoch: ", own_epoch)
+	#print("Current World Epoch: ",world.epoch_map.get_current_epoch())
+	#print("Own Epoch: ", own_epoch)
 	
 	if own_epoch != world.epoch_map.get_current_epoch():
 		self.modulate.a = 0.2

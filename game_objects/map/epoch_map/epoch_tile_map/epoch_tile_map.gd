@@ -4,11 +4,18 @@ extends TileMap
 
 var direction_markers: Dictionary = {}
 
+const HIGHLIGHT_MATERIAL = preload("res://visual_effects/highlight_material.tres")
+
 func _input(event: InputEvent) -> void:
+	var mouse_pos = get_global_mouse_position()
+	var tile_data = get_tile_data_at_mouse_pos()
 	if event is InputEventMouseButton and event.is_pressed():
-		var mouse_pos = get_global_mouse_position()
-		if get_tile_data_at_mouse_pos() == null:
+		if tile_data == null:
 			return
+	#if event is InputEventMouseMotion:
+	#	if tile_data != null:
+	#		tile_data.material = HIGHLIGHT_MATERIAL
+	#		tile_data.material.set_shader_parameter("width", 1.0)
 
 func world_to_tile_coord(coord: Vector2) -> Vector2:
 	return local_to_map(coord)
@@ -20,7 +27,7 @@ func register_direction_marker(node: Node2D, direction: Vector2):
 
 func get_tile_data_at_mouse_pos() -> TileData:
 	var tile_map_coordinates = local_to_map(get_local_mouse_position())
-	var tile_data = get_cell_tile_data(0, tile_map_coordinates)
+	var tile_data = get_cell_tile_data(0, tile_map_coordinates, true)
 	return tile_data
 
 

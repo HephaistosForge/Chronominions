@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=10 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_hw6gv"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
 [ext_resource type="Script" path="res://game_objects/items/item_list.gd" id="2_etk3s"]
 [ext_resource type="PackedScene" uid="uid://ngl3pyu47nol" path="res://ui_scenes/ingame/item_selection/item_selection.tscn" id="3_34h31"]
+[ext_resource type="Texture2D" uid="uid://cv2xw4py7cjoj" path="res://art/cloud_pixel_art_bg.png" id="3_ni841"]
 
 [sub_resource type="Resource" id="Resource_j4ywn"]
 script = ExtResource("2_etk3s")
@@ -53,6 +54,9 @@ future_items = SubResource("Resource_4d2x4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.7, 0.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+texture = ExtResource("3_ni841")
 
 [node name="EpochMap" parent="." instance=ExtResource("1_uahcf")]
 position = Vector2(0, -150)
