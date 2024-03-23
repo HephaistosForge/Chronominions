@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs4myl8m7nn2p"]
+
+[ext_resource type="Script" path="res://game_objects/direction_marker/direction_marker.gd" id="1_wo320"]
+[ext_resource type="Texture2D" uid="uid://djcesm0mq6yg0" path="res://game_objects/lemmings/sprite.png" id="2_7vtu4"]
+
+[node name="DirectionMarker" type="Sprite2D"]
+rotation = 1.5708
+texture = ExtResource("2_7vtu4")
+region_enabled = true
+region_rect = Rect2(16, 4, 16, 16)
+script = ExtResource("1_wo320")

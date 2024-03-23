@@ -42,5 +42,9 @@ func get_current_epoch_map():
 	return available_epochs[current_epoch]
 	
 	
+func get_epoch_map_from_epoch_enum(epoch: Globals.Epoch):
+	return available_epochs[epoch]
+	
+	
 func get_current_epoch():
 	return current_epoch

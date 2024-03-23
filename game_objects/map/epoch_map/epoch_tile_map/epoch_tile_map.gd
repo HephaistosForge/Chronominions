@@ -17,3 +17,9 @@ func is_on_tile(node: Node2D) -> bool:
 	var tile_coord = local_to_map(local_node_pos)
 	return get_cell_tile_data(0,tile_coord) != null
 		
+
+	
+func get_tile_data(node: Node2D) -> bool:
+	var local_node_pos = to_local(node.global_position)
+	var tile_coord = local_to_map(local_node_pos)
+	return get_cell_tile_data(0,tile_coord) != null
