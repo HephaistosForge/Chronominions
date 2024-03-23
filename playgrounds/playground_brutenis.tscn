@@ -6,13 +6,10 @@
 [ext_resource type="PackedScene" path="res://game_objects/pickups/bomb_pickup.tscn" id="4_hq7w2"]
 [ext_resource type="PackedScene" uid="uid://bs4myl8m7nn2p" path="res://game_objects/direction_marker/direction_marker.tscn" id="5_qvf6e"]
 
-[node name="PlaygroundChristoph" type="Node2D"]
+[node name="PlaygroundBrutenis" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_vewa4")]
 position = Vector2(1641, 653.5)
-
-[node name="EpochTileMap" parent="World/EpochMap" index="0"]
-epoch = -1
 
 [node name="LemmingDespawner" parent="World/EpochMap/EpochTileMap" index="0" instance=ExtResource("2_5y2ms")]
 z_index = 1
