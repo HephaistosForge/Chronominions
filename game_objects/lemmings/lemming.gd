@@ -61,7 +61,7 @@ func set_visibility():
 	#print("Current World Epoch: ",world.epoch_map.get_current_epoch())
 	#print("Own Epoch: ", own_epoch)
 
-	if own_epoch != world.epoch_map.get_current_epoch():
+	if own_epoch != world.epoch_map.get_current_epoch_enum():
 		self.modulate.a = 0.2
 	else:
 		self.modulate.a = 1

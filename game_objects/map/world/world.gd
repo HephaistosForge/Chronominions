@@ -15,4 +15,5 @@ func _ready():
 	item_selections.init_item_lists(past_items, present_items, future_items, starting_epoch, epoch_map)
 	AudioManager.set_primary_player(epoch_map.get_current_epoch())
 	AudioManager.sync_players()
+	epoch_map.set_current_epoch_from_epoch_enum(starting_epoch)
 	

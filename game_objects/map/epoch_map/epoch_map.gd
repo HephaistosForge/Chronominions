@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var current_epoch = 0
+var current_epoch = 0
 
 @onready var available_epochs: Array
 
@@ -53,7 +53,18 @@ func get_epoch_map_from_epoch_enum(epoch: Globals.Epoch):
 	for epoch_tile_map in available_epochs:
 		if epoch_tile_map.epoch == epoch:
 			return epoch_tile_map
+			
+func set_current_epoch_from_epoch_enum(epoch: Globals.Epoch):
+	for i in range(len(available_epochs)):
+		var epoch_tile_map = available_epochs[i]
+		if epoch_tile_map.epoch == epoch:
+			current_epoch = i
+			return
+	assert(false,"starting_epoch does not exist in world!")
 	
 	
-func get_current_epoch():
+func get_current_epoch()->int:
 	return current_epoch
+	
+func get_current_epoch_enum()->Globals.Epoch:
+	return available_epochs[current_epoch].epoch
