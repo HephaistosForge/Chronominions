@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://derk6ivycqo77"]
 
 [ext_resource type="Script" path="res://game_objects/time_gate/time_gate.gd" id="1_586u5"]
-[ext_resource type="Texture2D" uid="uid://cr5pmwuadhq2d" path="res://art/mockup/portal_past.png" id="2_6oru8"]
+[ext_resource type="Texture2D" uid="uid://06jg35doafyg" path="res://game_objects/time_gate/portal_past.png" id="2_xi47y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghwmn"]
 size = Vector2(6, 9.5)
@@ -17,5 +17,5 @@ position = Vector2(5, -1.75)
 shape = SubResource("RectangleShape2D_ghwmn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-texture = ExtResource("2_6oru8")
+texture = ExtResource("2_xi47y")
 metadata/_edit_lock_ = true

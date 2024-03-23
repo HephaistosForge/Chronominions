@@ -1,20 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://bnmtihuiugbgs"]
 
 [ext_resource type="Script" path="res://game_objects/lemming_despawner/lemming_despawner.gd" id="1_6aa8y"]
-[ext_resource type="Texture2D" uid="uid://chnvxccflhcaa" path="res://art/mockup/despawner.png" id="2_swv0o"]
+[ext_resource type="Texture2D" uid="uid://bsxc6p1u08lpb" path="res://game_objects/lemming_despawner/despawner.png" id="2_3px8v"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0qnqr"]
-radius = 4.14286
-height = 14.8571
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lju7d"]
+size = Vector2(8, 12)
 
 [node name="LemmingDespawner" type="Area2D"]
 script = ExtResource("1_6aa8y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.85714, 4.28571)
-shape = SubResource("CapsuleShape2D_0qnqr")
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_lju7d")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
-texture = ExtResource("2_swv0o")
+texture = ExtResource("2_3px8v")
 metadata/_edit_lock_ = true
