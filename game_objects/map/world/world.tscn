@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=10 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
 [ext_resource type="Script" path="res://game_objects/items/starting_item_list.gd" id="2_is3q4"]
 [ext_resource type="Texture2D" uid="uid://cv2xw4py7cjoj" path="res://art/cloud_pixel_art_bg.png" id="3_ni841"]
-[ext_resource type="PackedScene" uid="uid://c0vuapdbkifok" path="res://game_objects/map/epoch_map/epoch_tile_map/epoch_tile_map.tscn" id="4_elcu4"]
 [ext_resource type="Texture2D" uid="uid://bcu78ul68ovsf" path="res://ui_scenes/button_textures/button_07_frame.png" id="4_wpw3v"]
 [ext_resource type="Script" path="res://game_objects/map/world/ItemSelections.gd" id="5_d12mu"]
 
@@ -64,8 +63,6 @@ texture = ExtResource("3_ni841")
 
 [node name="EpochMap" parent="." instance=ExtResource("1_uahcf")]
 position = Vector2(0, -150)
-
-[node name="EpochTileMap" parent="EpochMap" instance=ExtResource("4_elcu4")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
