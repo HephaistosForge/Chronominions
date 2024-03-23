@@ -1,6 +1,7 @@
 class_name Lemming extends CharacterBody2D
 
 @onready var world: Node2D
+@onready var time_gates: Array
 @export var own_epoch: Globals.Epoch
 
 var direction: Vector2 = Globals.NE:
@@ -22,6 +23,7 @@ func _ready():
 	self.scale = Vector2.ZERO
 	tween.tween_property(self, "scale", Vector2(1, 1), 0.4) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
+
 
 
 func _physics_process(delta):
@@ -52,7 +54,12 @@ func die():
 	$AnimationPlayer.play("die")
 	
 
+	
+
 func set_visibility():
+	print("Current World Epoch: ",world.epoch_map.get_current_epoch())
+	print("Own Epoch: ", own_epoch)
+	
 	if own_epoch != world.epoch_map.get_current_epoch():
 		self.modulate.a = 0.2
 	else:

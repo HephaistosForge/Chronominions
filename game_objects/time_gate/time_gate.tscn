@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://clqf0n2wor3du"]
+
+[ext_resource type="Script" path="res://game_objects/time_gate/time_gate.gd" id="1_a6mg1"]
+
+[node name="TimeGate" type="Node2D"]
+
+[node name="Node2D" type="Area2D" parent="."]
+script = ExtResource("1_a6mg1")
+portal_direction = null
+epoch = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]

@@ -7,7 +7,7 @@ var rand = RandomNumberGenerator.new()
 var direction = [Globals.NW,Globals.NE,Globals.SW,Globals.SE]
 
 
-@export var lemming_population: int = 10
+@export var lemming_population: int = 1
 @export var init_direction: Vector2 = Globals.NE
 
 var epoch: Globals.Epoch
