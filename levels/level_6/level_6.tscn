@@ -1,11 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://2efd7kwdwm45"]
+[gd_scene load_steps=7 format=3 uid="uid://2efd7kwdwm45"]
 
 [ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_62y14"]
+[ext_resource type="Script" path="res://game_objects/items/starting_item_list.gd" id="2_51los"]
 [ext_resource type="PackedScene" uid="uid://c0vuapdbkifok" path="res://game_objects/map/epoch_map/epoch_tile_map/epoch_tile_map.tscn" id="2_m74ah"]
+
+[sub_resource type="Resource" id="Resource_u5q02"]
+script = ExtResource("2_51los")
+direction_nw = 0
+direction_ne = 0
+direction_sw = 0
+direction_se = 0
+bombs = 0
+shovels = 0
+fences = 0
+portal_past = 0
+portal_present = 0
+portal_future = 0
+
+[sub_resource type="Resource" id="Resource_15h8i"]
+script = ExtResource("2_51los")
+direction_nw = 0
+direction_ne = 0
+direction_sw = 0
+direction_se = 0
+bombs = 0
+shovels = 0
+fences = 1
+portal_past = 0
+portal_present = 0
+portal_future = 0
+
+[sub_resource type="Resource" id="Resource_v6rdw"]
+script = ExtResource("2_51los")
+direction_nw = 0
+direction_ne = 0
+direction_sw = 0
+direction_se = 0
+bombs = 1
+shovels = 0
+fences = 0
+portal_past = 0
+portal_present = 0
+portal_future = 0
 
 [node name="Level6" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_62y14")]
+past_items = SubResource("Resource_u5q02")
+present_items = SubResource("Resource_15h8i")
+future_items = SubResource("Resource_v6rdw")
 
 [node name="Future" parent="World/EpochMap" index="0" instance=ExtResource("2_m74ah")]
 layer_0/tile_data = PackedInt32Array(262141, 131075, 8, 196606, 131075, 8, 131070, 131075, 8, 65535, 262147, 8, -196610, 327683, 6, -131074, 589827, 6, -65537, 196611, 7, -1, 655363, 6, 0, 458755, 6, 65536, 589827, 6, 131073, 262147, 7, -131072, 262147, 7, -196608, 196611, 7, -262143, 65539, 6, -327679, 65539, 6, 196609, 589827, 5, -262147, 655363, 5, -2, 589827, 1, 65534, 589827, 1, -65538, 393219, 1, -131075, 458755, 1, -196611, 393219, 1, 131069, 589827, 1, 196605, 458755, 1, 65533, 655363, 1, -65539, 458755, 1, -3, 655363, 1, -4, 458755, 1, 131068, 262147, 0, 65532, 3, 1, -5, 458755, 0, -65540, 196611, 1, -131076, 196611, 2, 524287, 196611, 1, 458751, 196611, 0, 393215, 131075, 0, 327679, 3, 1, 262143, 196611, 0, 262144, 3, 0, 393214, 458755, 1, 327678, 589827, 1, 262142, 589827, 1, 196607, 393219, 1, 131071, 393219, 1, 131072, 655363, 1, 196608, 524291, 1, 262145, 458755, 1, 327680, 589827, 1, 393216, 524291, 1, -65536, 458755, 5, 1, 393219, 5, -196607, 589827, 1, -131071, 327683, 0, -65535, 393219, 0, 2, 327683, 0, 131074, 327683, 0, 65537, 589827, 0, 65538, 655363, 0, -65534, 196611, 2, -196606, 393219, 0, -262142, 655363, 1, -131070, 393219, 1, -131069, 458755, 2, 3, 131075, 2, -65533, 3, 2, -262144, 458755, 5, -327680, 393219, 5, -393216, 458755, 5, -458752, 458755, 5, -524288, 458755, 5, -393215, 458755, 1, -131073, 393219, 1, -196609, 524291, 1, -262146, 524291, 1, -262145, 589827, 1, -327682, 393219, 1, -327681, 262147, 1, -393218, 589827, 0, -393217, 196611, 2, -458753, 524291, 0, -524289, 589827, 0)
