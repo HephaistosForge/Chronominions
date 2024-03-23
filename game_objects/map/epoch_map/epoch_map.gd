@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var available_epochs: Array
 
+signal epoch_changed
 
 func _ready() -> void:
 	available_epochs = get_children()
@@ -24,6 +25,7 @@ func blend_to_next():
 	current_epoch += 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
 	fade_in(current_epoch)
+	epoch_changed.emit()
 
 
 func blend_to_previous():
@@ -31,7 +33,12 @@ func blend_to_previous():
 	current_epoch -= 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
 	fade_in(current_epoch)
+	epoch_changed.emit()
 	
 	
 func get_current_epoch_map():
 	return available_epochs[current_epoch]
+	
+	
+func get_current_epoch():
+	return current_epoch

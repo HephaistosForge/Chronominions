@@ -5,4 +5,4 @@ const NE = Vector2(1,-0.5)
 const SW = Vector2(-1,0.5)
 const SE = Vector2(1,0.5)
 
-enum Epoch { PAST, PRESENT, FUTURE }
+enum Epoch { PAST = -1, PRESENT = 0, FUTURE = 1}
