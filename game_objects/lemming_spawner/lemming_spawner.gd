@@ -8,7 +8,7 @@ var direction = [Globals.NW,Globals.NE,Globals.SW,Globals.SE]
 
 
 @export var lemming_population: int = 5
-@export var init_direction: Vector2 = Globals.NW
+@export var init_direction: Globals.Direction
 
 var epoch: Globals.Epoch
 
@@ -23,6 +23,6 @@ func _on_timer_timeout():
 		var lemming_scene = LEMMING_SCENE.instantiate()
 		lemming_scene.own_epoch = epoch
 		get_parent().add_sibling(lemming_scene)
-		lemming_scene.direction = init_direction#direction[randi_range(0,3)]
+		lemming_scene.direction = Globals.direction_to_vec(init_direction)#direction[randi_range(0,3)]
 		lemming_population-=1
 		lemming_scene.global_position = global_position

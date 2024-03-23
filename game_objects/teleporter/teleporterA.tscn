@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://brm87ali1qau2"]
 
 [ext_resource type="Script" path="res://game_objects/teleporter/teleporter.gd" id="1_dlvup"]
-[ext_resource type="Texture2D" uid="uid://cagsk1mhg6381" path="res://art/mockup/portalA.png" id="2_7b3c8"]
+[ext_resource type="Texture2D" uid="uid://bp874iomm0lxc" path="res://game_objects/teleporter/portalA.png" id="2_x7ich"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qllc7"]
 size = Vector2(7.87718, 6.241)
@@ -16,5 +16,5 @@ shape = SubResource("RectangleShape2D_qllc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_7b3c8")
+texture = ExtResource("2_x7ich")
 metadata/_edit_lock_ = true

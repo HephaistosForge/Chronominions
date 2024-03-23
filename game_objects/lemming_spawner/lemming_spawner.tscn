@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cfiv0ufmapcy1"]
 
 [ext_resource type="Script" path="res://game_objects/lemming_spawner/lemming_spawner.gd" id="1_k8wrn"]
-[ext_resource type="Texture2D" uid="uid://dolgp074blr0l" path="res://art/mockup/spawner.png" id="2_e4bou"]
+[ext_resource type="Texture2D" uid="uid://dr0v8wf5p7bec" path="res://game_objects/lemming_spawner/spawner.png" id="2_nf8ht"]
 
 [node name="LemmingSpawner" type="Node2D"]
 script = ExtResource("1_k8wrn")
@@ -11,6 +11,6 @@ autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -6)
-texture = ExtResource("2_e4bou")
+texture = ExtResource("2_nf8ht")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

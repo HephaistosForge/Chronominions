@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://blmrio4fc28ao"]
+
+[ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_1lho5"]
+[ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="2_i7tei"]
+[ext_resource type="PackedScene" uid="uid://c0vuapdbkifok" path="res://game_objects/map/epoch_map/epoch_tile_map/epoch_tile_map.tscn" id="3_87m74"]
+
+[node name="PlaygroundChristoph" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_1lho5")]
+starting_epoch = 1
+
+[node name="Map" parent="World" instance=ExtResource("2_i7tei")]
+
+[node name="Past" parent="World/Map" instance=ExtResource("3_87m74")]
+
+[node name="Present" parent="World/Map" instance=ExtResource("3_87m74")]
+epoch = 1
+
+[node name="Future" parent="World/Map" instance=ExtResource("3_87m74")]
+epoch = 2
+
+[connection signal="epoch_changed" from="World/Map" to="World/Map/Past" method="_on_map_epoch_changed"]
+[connection signal="epoch_changed" from="World/Map" to="World/Map/Present" method="_on_map_epoch_changed"]
+[connection signal="epoch_changed" from="World/Map" to="World/Map/Future" method="_on_map_epoch_changed"]
