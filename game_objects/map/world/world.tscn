@@ -3,9 +3,16 @@
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_hw6gv"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
+[ext_resource type="PackedScene" uid="uid://ngl3pyu47nol" path="res://ui_scenes/ingame/item_selection/item_selection.tscn" id="3_34h31"]
 
 [node name="World" type="Node2D" groups=["world"]]
 script = ExtResource("1_a2ek4")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.7, 0.7)
+
+[node name="EpochMap" parent="." instance=ExtResource("1_uahcf")]
+position = Vector2(0, -150)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -34,11 +41,7 @@ grow_vertical = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("1_hw6gv")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.7, 0.7)
-
-[node name="EpochMap" parent="." instance=ExtResource("1_uahcf")]
-position = Vector2(0, -150)
+[node name="PanelContainer4" parent="CanvasLayer" instance=ExtResource("3_34h31")]
 
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="EpochMap" method="blend_to_previous"]
 [connection signal="pressed" from="CanvasLayer/TextureButton2" to="EpochMap" method="blend_to_next"]

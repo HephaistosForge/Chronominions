@@ -39,7 +39,7 @@ var thanks = ["Thanks for Playing!"]
 
 var licensing = ["",
 	[
-		GAME_TITLE +"\n A game by Hephaistos' Forge","2024","MIT License"
+		"This AAAAA-Game\n" +GAME_TITLE +"\n is presented to you by Hephaistos' Forge","2024","MIT License"
 	]
 ]
 

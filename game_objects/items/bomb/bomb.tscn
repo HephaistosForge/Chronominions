@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ppbv1fqyu6u5"]
+
+[ext_resource type="Script" path="res://game_objects/items/bomb/bomb.gd" id="1_xvj51"]
+
+[node name="Bomb" type="Sprite2D"]
+script = ExtResource("1_xvj51")
