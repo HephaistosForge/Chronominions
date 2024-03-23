@@ -6,10 +6,10 @@ const ITEM_SELECT_PREFAB: PackedScene = preload("res://ui_scenes/ingame/item_sel
 
 
 func initialize_item_selection(starting_items_list: StartingItemsList):
-	init_item_selection_items(Bomb.new(), starting_items_list.direction_nw)
-	init_item_selection_items(Bomb.new(), starting_items_list.direction_ne)
-	init_item_selection_items(Bomb.new(), starting_items_list.direction_sw)
-	init_item_selection_items(Bomb.new(), starting_items_list.direction_se)
+	init_item_selection_items(DirectionMarker.new(Globals.Direction.NW), starting_items_list.direction_nw)
+	init_item_selection_items(DirectionMarker.new(Globals.Direction.NE), starting_items_list.direction_ne)
+	init_item_selection_items(DirectionMarker.new(Globals.Direction.SW), starting_items_list.direction_sw)
+	init_item_selection_items(DirectionMarker.new(Globals.Direction.SE), starting_items_list.direction_se)
 	init_item_selection_items(Bomb.new(), starting_items_list.bombs)
 	init_item_selection_items(Shovel.new(), starting_items_list.shovels)
 	init_item_selection_items(Bomb.new(), starting_items_list.fences)

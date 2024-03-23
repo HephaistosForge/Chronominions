@@ -2,7 +2,6 @@
 extends Area2D
 
 
-
 @export var direction: Globals.Direction = Globals.Direction.NW:
 	set(new_direction):
 		direction = new_direction
