@@ -4,12 +4,12 @@ const TUTORIAL_ITEM_PREFAB = preload("res://ui_scenes/main_menu/how_to_play/how_
 
 var tutorial_items = [
 	[
-		preload("res://icon.svg"), 
+		preload("res://ui_scenes/main_menu/how_to_play/screenshots/minions.png"), 
 		"Minions", 
 		"Minions spawn at the entrance gate and move right on the map. Your score is determined by the number of minions leaving through the exit gate."
 	],	
 	[
-		preload("res://icon.svg"), 
+		preload("res://ui_scenes/main_menu/how_to_play/screenshots/items.png"), 
 		"Items", 
 		"Bombs can be placed to destroy mountains, shovels to bridge water."
 	],
@@ -19,7 +19,7 @@ var tutorial_items = [
 		"Signposts change the direction of crossing minions."
 	],
 	[
-		preload("res://icon.svg"), 
+		preload("res://ui_scenes/main_menu/how_to_play/screenshots/pickups.png"), 
 		"Pickups", 
 		"Minions crossing items on the map will grant them to your inventory."
 	],
