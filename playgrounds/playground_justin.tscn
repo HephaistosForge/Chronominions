@@ -1,3 +1,28 @@
-[gd_scene format=3 uid="uid://4hkp1cekhxxa"]
+[gd_scene load_steps=5 format=3 uid="uid://4hkp1cekhxxa"]
+
+[ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_vka4e"]
+[ext_resource type="PackedScene" uid="uid://b8cpl7nb4rqxo" path="res://game_objects/pickups/bomb_pickup.tscn" id="2_sjv3f"]
+[ext_resource type="PackedScene" uid="uid://cfiv0ufmapcy1" path="res://game_objects/lemming_spawner/lemming_spawner.tscn" id="3_1t2xg"]
+[ext_resource type="PackedScene" uid="uid://ccq8oncdltvi6" path="res://game_objects/pickups/shovel_pickup.tscn" id="3_qoadf"]
 
 [node name="PlaygroundJustin" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_vka4e")]
+
+[node name="EpochTileMap" parent="World/EpochMap" index="0"]
+epoch = -1
+
+[node name="BombPickup" parent="World/EpochMap/EpochTileMap" index="0" instance=ExtResource("2_sjv3f")]
+position = Vector2(30.75, -16)
+
+[node name="ShovelPickup" parent="World/EpochMap/EpochTileMap2" index="0" instance=ExtResource("3_qoadf")]
+position = Vector2(-30.5, 16.5)
+
+[node name="EpochTileMap3" parent="World/EpochMap" index="2"]
+epoch = 1
+
+[node name="LemmingSpawner" parent="World" instance=ExtResource("3_1t2xg")]
+position = Vector2(0, -153)
+
+[editable path="World"]
+[editable path="World/EpochMap"]

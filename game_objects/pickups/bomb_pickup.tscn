@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://b8cpl7nb4rqxo"]
+
+[ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_31je2"]
+[ext_resource type="Script" path="res://game_objects/pickups/pickup_area.gd" id="1_kjoq7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jha1f"]
+
+[node name="BombPickup" type="Area2D"]
+script = ExtResource("1_kjoq7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.584314, 0, 0.156863, 1)
+scale = Vector2(0.11, 0.11)
+texture = ExtResource("1_31je2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jha1f")
