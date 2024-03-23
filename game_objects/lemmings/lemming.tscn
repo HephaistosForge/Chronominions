@@ -144,6 +144,7 @@ _data = {
 script = ExtResource("1_db08k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
 texture = ExtResource("2_eackk")
 region_enabled = true
 region_rect = Rect2(16, 30, 16, 16)

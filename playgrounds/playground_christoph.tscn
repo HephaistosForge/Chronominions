@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_m7h5j"]
 [ext_resource type="PackedScene" uid="uid://bnmtihuiugbgs" path="res://game_objects/lemming_despawner/lemming_despawner.tscn" id="4_58liy"]
 [ext_resource type="PackedScene" uid="uid://cfiv0ufmapcy1" path="res://game_objects/lemming_spawner/lemming_spawner.tscn" id="4_o8lne"]
-[ext_resource type="PackedScene" uid="uid://b8cpl7nb4rqxo" path="res://game_objects/pickups/bomb_pickup.tscn" id="4_phypd"]
+[ext_resource type="PackedScene" path="res://game_objects/pickups/bomb_pickup.tscn" id="4_phypd"]
 
 [node name="PlaygroundChristoph" type="Node2D"]
 
