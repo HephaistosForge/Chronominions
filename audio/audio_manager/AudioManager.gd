@@ -64,6 +64,7 @@ func set_music_volume(percent:float) -> void:
 	music_volume = percent
 	background_player.volume_db = linear_to_db((float(music_volume)/100.0))
 
+
 # creates a player with 
 # sound: the array defined in this script with the given sound name
 # position: if null the sound is played without a world-location

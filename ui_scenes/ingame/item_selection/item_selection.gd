@@ -4,6 +4,10 @@ const ITEM_SELECT_PREFAB: PackedScene = preload("res://ui_scenes/ingame/item_sel
 
 @onready var item_select_container = $MarginContainer/HBoxContainer
 
+
+func set_item_list(past, present, future):
+	pass
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	for i in range(3):

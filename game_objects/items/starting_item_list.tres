@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="StartingItemsList" load_steps=2 format=3 uid="uid://dhg4hwaajog4m"]
+
+[ext_resource type="Script" path="res://game_objects/items/item_list.gd" id="1_3vc6d"]
+
+[resource]
+script = ExtResource("1_3vc6d")
+direction_nw = 0
+direction_ne = 0
+direction_sw = 0
+direction_se = 0
+bombs = 0
+shovels = 0
+fences = 0
+portal_past = 0
+portal_present = 0
+portal_future = 0

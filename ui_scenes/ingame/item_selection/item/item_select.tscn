@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://rp4677ac5sc2"]
 
 [ext_resource type="Script" path="res://ui_scenes/ingame/item_selection/item/item_select.gd" id="1_13hf6"]
-[ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="2_dcwdi"]
+[ext_resource type="Texture2D" uid="uid://6utf0b0f5hp6" path="res://game_objects/items/bomb/SpellBook01_39.png" id="2_yalkm"]
 
 [node name="ItemSelect" type="PanelContainer"]
 offset_right = 40.0
@@ -19,8 +19,11 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
-texture = ExtResource("2_dcwdi")
+texture = ExtResource("2_yalkm")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
