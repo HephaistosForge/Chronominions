@@ -6,6 +6,8 @@ var direction_markers: Dictionary = {}
 
 const HIGHLIGHT_MATERIAL = preload("res://visual_effects/highlight_material.tres")
 
+const DIRECTION_MARKER_PREFAB = preload("res://game_objects/direction_marker/direction_marker.tscn")
+
 func _input(event: InputEvent) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var tile_data = get_tile_data_at_mouse_pos()
@@ -81,3 +83,9 @@ func destroy_rock(tile_position):
 
 func remove_water(tile_position: Vector2):
 	set_cell(0, tile_position, 3, Vector2(6, 1), 0)
+	
+
+func place_marker(tile_position: Vector2, direction: Globals.Direction):
+	var marker = DIRECTION_MARKER_PREFAB.instantiate()
+	marker.direction = direction
+	self.add_child(marker)
