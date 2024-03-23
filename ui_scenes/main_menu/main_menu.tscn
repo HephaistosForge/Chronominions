@@ -63,7 +63,7 @@ theme_override_constants/margin_top = 50
 z_index = 3
 layout_mode = 2
 theme_override_font_sizes/font_size = 120
-text = "<GAME NAME>"
+text = "Foresight"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
 layout_mode = 2
