@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://brm87ali1qau2"]
+
+[ext_resource type="Script" path="res://game_objects/teleporter/teleporter.gd" id="1_dlvup"]
+[ext_resource type="Texture2D" uid="uid://cagsk1mhg6381" path="res://art/mockup/portalA.png" id="2_7b3c8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qllc7"]
+size = Vector2(7.87718, 6.241)
+
+[node name="TeleporterA" type="Area2D"]
+script = ExtResource("1_dlvup")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1)
+rotation = -0.801106
+shape = SubResource("RectangleShape2D_qllc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_7b3c8")
+metadata/_edit_lock_ = true
