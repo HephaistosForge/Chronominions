@@ -1,5 +1,7 @@
 extends TileMap
 
+@export var epoch : Globals.Epoch
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		var mouse_pos = get_local_mouse_position()
