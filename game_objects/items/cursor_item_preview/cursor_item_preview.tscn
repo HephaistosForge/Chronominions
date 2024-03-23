@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://xcvqatvdya21"]
+
+[ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_qo055"]
+[ext_resource type="Script" path="res://game_objects/items/cursor_item_preview/cursor_item_preview.gd" id="2_r6fy6"]
+
+[node name="CursorItemPreview" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_qo055")
+offset = Vector2(-70, 140)
+script = ExtResource("2_r6fy6")
