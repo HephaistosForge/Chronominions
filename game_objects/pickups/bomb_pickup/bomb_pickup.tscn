@@ -11,11 +11,11 @@ size = Vector2(100, 100)
 [node name="BombPickup" type="Node2D"]
 
 [node name="PickupArea" parent="." node_paths=PackedStringArray("item") instance=ExtResource("1_iqd31")]
-item = NodePath("../Bomb")
+item = NodePath("Bomb")
 sprite_texture = SubResource("PlaceholderTexture2D_m0asb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("CircleShape2D_c0wcm")
 
-[node name="Bomb" parent="." instance=ExtResource("2_fdshj")]
+[node name="Bomb" parent="PickupArea" instance=ExtResource("2_fdshj")]
 visible = false

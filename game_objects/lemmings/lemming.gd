@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Lemming extends CharacterBody2D
 
 @onready var world: Node2D
 @export var own_epoch: Globals.Epoch

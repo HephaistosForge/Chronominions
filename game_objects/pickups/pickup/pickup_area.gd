@@ -10,12 +10,14 @@ extends Area2D
 @export var sprite_texture : Texture2D
 
 func _ready():
-	self.area_entered.connect(self._on_obj_enter)
+	self.body_entered.connect(self._on_body_enter)
 	$Sprite2D.texture = sprite_texture
 
-func _on_obj_enter(obj: Area2D):
-	# parent = obj.get_parent()
-	#if is_instance_of(parent, Lemming):
-	#	if parent.epoch == epoch:
+func _on_body_enter(body: Node2D):
+	if body is Lemming:
+		print("lemming detected!")
+		if body.own_epoch == epoch:
+			self.queue_free()
+			
 	#		player.add_item(self._item_name)
 	push_warning("Pickup action not yet implemented.")
