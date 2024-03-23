@@ -1,11 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs4myl8m7nn2p"]
+[gd_scene load_steps=4 format=3 uid="uid://bs4myl8m7nn2p"]
 
 [ext_resource type="Script" path="res://game_objects/direction_marker/direction_marker.gd" id="1_wo320"]
 [ext_resource type="Texture2D" uid="uid://djcesm0mq6yg0" path="res://game_objects/lemmings/sprite.png" id="2_7vtu4"]
 
-[node name="DirectionMarker" type="Sprite2D"]
-rotation = 1.5708
+[sub_resource type="CircleShape2D" id="CircleShape2D_pn3ig"]
+radius = 9.05539
+
+[node name="DirectionMarker" type="Area2D" groups=["direction_marker"]]
+z_index = 2
+collision_layer = 0
+script = ExtResource("1_wo320")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+self_modulate = Color(0.109804, 0.109804, 0.109804, 0.219608)
+position = Vector2(0, 6)
+rotation = 4.71239
+scale = Vector2(8, 16)
 texture = ExtResource("2_7vtu4")
 region_enabled = true
 region_rect = Rect2(16, 4, 16, 16)
-script = ExtResource("1_wo320")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+rotation = 4.71239
+scale = Vector2(8, 16)
+texture = ExtResource("2_7vtu4")
+region_enabled = true
+region_rect = Rect2(16, 4, 16, 16)
+
+[node name="IntentionallySmallCollisionShape" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CircleShape2D_pn3ig")

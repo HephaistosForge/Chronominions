@@ -25,7 +25,19 @@ func _physics_process(delta):
 	var lemming_epoch_map = world.epoch_map.get_epoch_map_from_epoch_enum(own_epoch)
 	if not lemming_epoch_map.is_on_tile(self):
 		self.die()
+		return
 		
+	if lemming_epoch_map.is_on_water(self):
+		self.die()
+		
+	if lemming_epoch_map.is_on_mountain(self):
+		self.bounce()
+		
+	
+		
+		
+func bounce():
+	direction = -direction
 
 func die():
 	# Animation player queue_frees lemming

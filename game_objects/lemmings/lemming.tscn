@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://djcesm0mq6yg0" path="res://game_objects/lemmings/sprite.png" id="2_eackk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2on2"]
-radius = 30.0
+radius = 9.48683
 
 [sub_resource type="Animation" id="Animation_0ipbq"]
 length = 0.001
@@ -141,14 +141,16 @@ _data = {
 }
 
 [node name="Lemming" type="CharacterBody2D"]
+z_index = 10
+collision_mask = 0
 script = ExtResource("1_db08k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
 scale = Vector2(5, 5)
 texture = ExtResource("2_eackk")
 region_enabled = true
 region_rect = Rect2(16, 30, 16, 16)
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)

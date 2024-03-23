@@ -6,7 +6,9 @@ const SW = Vector2(-1,0.5)
 const SE = Vector2(1,0.5)
 
 enum Direction {NW, NE, SW, SE}
-const DirectionToVec = {Direction.NW: NW, Direction.NE: NE, Direction.SW: SW, Direction.SE: SE}
+
+func direction_to_vec(direction: Direction):
+	return {Direction.NW: NW, Direction.NE: NE, Direction.SW: SW, Direction.SE: SE}[direction]
 
 enum Epoch { PAST = -1, PRESENT = 0, FUTURE = 1}
 
