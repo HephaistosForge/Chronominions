@@ -141,6 +141,7 @@ _data = {
 }
 
 [node name="Lemming" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_db08k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

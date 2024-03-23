@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2sij2maj6kep"]
+
+[ext_resource type="Script" path="res://game_objects/time_gate/time_gate.gd" id="1_s6k17"]
+[ext_resource type="Texture2D" uid="uid://begggsows7xsi" path="res://art/mockup/portal_present.png" id="2_qamd3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uj30"]
+size = Vector2(11, 12)
+
+[node name="TimeGate" type="Node2D" groups=["time_gate"]]
+
+[node name="Node2D" type="Area2D" parent="."]
+script = ExtResource("1_s6k17")
+portal_direction = 1
+epoch = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_6uj30")
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_qamd3")
+metadata/_edit_lock_ = true
