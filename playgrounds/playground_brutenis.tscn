@@ -22,24 +22,37 @@ monitoring = false
 epoch = -1
 
 [node name="LemmingSpawner" parent="World/EpochMap/EpochTileMap" index="1" instance=ExtResource("3_n47ma")]
-position = Vector2(0, 0.0625)
 scale = Vector2(0.125, 0.125)
+lemming_population = 10
 
 [node name="BombPickup" parent="World/EpochMap/EpochTileMap" index="2" instance=ExtResource("4_hq7w2")]
 z_index = 1
 position = Vector2(30.875, -17.1875)
 
 [node name="DirectionMarker" parent="World/EpochMap/EpochTileMap" index="3" instance=ExtResource("5_qvf6e")]
-position = Vector2(-29.75, 16.0625)
+position = Vector2(16.875, -8.3125)
 scale = Vector2(0.125, 0.125)
 
 [node name="DirectionMarker2" parent="World/EpochMap/EpochTileMap" index="4" instance=ExtResource("5_qvf6e")]
-position = Vector2(-66.125, -0.4375)
+position = Vector2(-16.625, 8.6875)
 scale = Vector2(0.125, 0.125)
 direction = 1
 
-[node name="EpochTileMap3" parent="World/EpochMap" index="2"]
+[node name="DirectionMarker3" parent="World/EpochMap/EpochTileMap" index="5" instance=ExtResource("5_qvf6e")]
+position = Vector2(-48.5, -8.9375)
+scale = Vector2(0.125, 0.125)
+direction = 3
+
+[node name="DirectionMarker4" parent="World/EpochMap/EpochTileMap" index="6" instance=ExtResource("5_qvf6e")]
+position = Vector2(-16, -25.3125)
+scale = Vector2(0.125, 0.125)
+direction = 2
+
+[node name="EpochTileMap2" parent="World/EpochMap" index="1"]
 epoch = 1
+
+[node name="EpochTileMap3" parent="World/EpochMap" index="2"]
+epoch = 2
 
 [editable path="World"]
 [editable path="World/EpochMap"]

@@ -8,7 +8,12 @@ signal epoch_changed
 
 func _ready() -> void:
 	available_epochs = get_children()
-
+	
+	for epoch1 in available_epochs:
+		for epoch2 in available_epochs:
+			if epoch1 != epoch2:
+				assert(epoch1.epoch != epoch2.epoch, "All epoch tile maps must be in different epochs")
+	
 
 func fade_out(index: int) -> void:
 	var node = available_epochs[index]
@@ -43,7 +48,9 @@ func get_current_epoch_map() -> TileMap:
 	
 	
 func get_epoch_map_from_epoch_enum(epoch: Globals.Epoch):
-	return available_epochs[epoch]
+	for epoch_tile_map in available_epochs:
+		if epoch_tile_map.epoch == epoch:
+			return epoch_tile_map
 	
 	
 func get_current_epoch():
