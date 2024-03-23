@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://d11ptteyfqwgj"]
+[gd_scene load_steps=3 format=3 uid="uid://d11ptteyfqwgj"]
+
+[ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_m7h5j"]
+[ext_resource type="PackedScene" uid="uid://cfiv0ufmapcy1" path="res://game_objects/lemming_spawner/lemming_spawner.tscn" id="4_o8lne"]
 
 [node name="PlaygroundChristoph" type="Node2D"]
+
+[node name="World" parent="." instance=ExtResource("1_m7h5j")]
+position = Vector2(1641, 653.5)
+
+[node name="LemmingSpawner" parent="World" instance=ExtResource("4_o8lne")]
+position = Vector2(-30, -213.5)
+
+[editable path="World"]

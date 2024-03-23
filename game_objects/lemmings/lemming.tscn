@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr30mnu7112jh"]
+
+[ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_6vygt"]
+[ext_resource type="Script" path="res://game_objects/lemmings/lemming.gd" id="1_db08k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2on2"]
+radius = 30.0
+
+[node name="Lemming" type="CharacterBody2D"]
+position = Vector2(1643, 396)
+script = ExtResource("1_db08k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6vygt")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+shape = SubResource("CircleShape2D_d2on2")
+metadata/_edit_lock_ = true

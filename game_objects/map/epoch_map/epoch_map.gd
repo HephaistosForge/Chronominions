@@ -31,3 +31,7 @@ func blend_to_previous():
 	current_epoch -= 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
 	fade_in(current_epoch)
+	
+	
+func get_current_epoch_map():
+	return available_epochs[current_epoch]
