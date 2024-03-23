@@ -21,6 +21,6 @@ func _on_timer_timeout():
 		var lemming_scene = LEMMING_SCENE.instantiate()
 		add_sibling(lemming_scene)
 		lemming_scene.global_position = global_position
-		lemming_scene.direction = direction[randi_range(0,3)]
+		lemming_scene.direction = Globals.NE#direction[randi_range(0,3)]
 		lemming_scene.own_epoch = rand.randi_range(-1,1)
 		lemming_population-=1
