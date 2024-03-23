@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=5 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_hw6gv"]
