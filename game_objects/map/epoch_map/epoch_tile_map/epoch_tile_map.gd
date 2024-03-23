@@ -1,5 +1,7 @@
 extends TileMap
 
+@export var epoch : Globals.Epoch
+
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		var mouse_pos = get_global_mouse_position()
@@ -22,6 +24,5 @@ func get_centered_tile_position_from_world_position(world_pos: Vector2) -> Vecto
 
 func is_on_tile(node: Node2D) -> bool:
 	var local_node_pos = to_local(node.global_position)
-	var tile_coord = world_to_tile_coord(local_node_pos)
+	var tile_coord = local_to_map(local_node_pos)
 	return get_cell_tile_data(0,tile_coord) != null
-		
