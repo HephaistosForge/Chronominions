@@ -27,7 +27,7 @@ func blend_to_next() -> void:
 	current_epoch += 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
 	fade_in(current_epoch)
-	epoch_changed.emit()
+	epoch_changed.emit(current_epoch)
 
 
 func blend_to_previous() -> void:
@@ -35,7 +35,7 @@ func blend_to_previous() -> void:
 	current_epoch -= 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
 	fade_in(current_epoch)
-	epoch_changed.emit()
+	epoch_changed.emit(current_epoch)
 	
 	
 func get_current_epoch_map() -> TileMap:

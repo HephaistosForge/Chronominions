@@ -18,7 +18,7 @@ func _ready():
 	
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_and_collide(direction) 
 	var curr_epoch_map = world.epoch_map.get_current_epoch_map()
 	if not curr_epoch_map.is_on_tile(self):
@@ -30,7 +30,7 @@ func die():
 	$AnimationPlayer.play("die")
 	
 
-func set_visibility():
+func set_visibility(_epoch):
 	if own_epoch != world.epoch_map.get_current_epoch():
 		self.modulate.a = 0.2
 	else:

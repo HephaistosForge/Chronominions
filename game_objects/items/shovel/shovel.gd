@@ -1,10 +1,16 @@
-class_name Bomb extends Item
+class_name Shovel extends Item
 
-var bomb_sprite = preload("res://game_objects/items/bomb/SpellBook01_39.png")
+var sprite = preload("res://game_objects/items/shovel/r_12.png")
+
+const VALID_TERRAIN_TYPES = [
+	Globals.TerrainType.DEEP_WATER, 
+	Globals.TerrainType.WATER, 
+	Globals.TerrainType.ICE
+	]
 
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
-	super._init("Bomb", bomb_sprite, bomb_sprite, Globals.ItemType.BOMB)
+	super._init("Shovel", sprite, sprite, Globals.ItemType.SHOVEL)
 
 
 func execute_item_action(curr_epoch_map: TileMap) -> bool:
@@ -19,8 +25,8 @@ func _is_valid_target(curr_epoch_map: TileMap) -> bool:
 	var tile_data = position_and_tile_data[1]
 	if tile_data == null:
 		return false
-	elif tile_data.get_terrain() == Globals.TerrainType.ROCKS_HIGH:
-		curr_epoch_map.destroy_rock(map_position)
+	elif tile_data.get_terrain() in VALID_TERRAIN_TYPES:
+		curr_epoch_map.remove_water(map_position)
 		return true
 	return false
 
