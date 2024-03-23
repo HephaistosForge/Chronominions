@@ -10,19 +10,19 @@ func _ready() -> void:
 	available_epochs = get_children()
 
 
-func fade_out(index: int):
+func fade_out(index: int) -> void:
 	var node = available_epochs[index]
 	node.propagate_call("set_visible", [false])
 	node.visible = false
 
 
-func fade_in(index: int):
+func fade_in(index: int) -> void:
 	var node = available_epochs[index]
 	node.propagate_call("set_visible", [true])
 	node.visible = true
 
 
-func blend_to_next():
+func blend_to_next() -> void:
 	fade_out(current_epoch)
 	current_epoch += 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
@@ -30,7 +30,7 @@ func blend_to_next():
 	epoch_changed.emit()
 
 
-func blend_to_previous():
+func blend_to_previous() -> void:
 	fade_out(current_epoch)
 	current_epoch -= 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
@@ -38,7 +38,7 @@ func blend_to_previous():
 	epoch_changed.emit()
 	
 	
-func get_current_epoch_map():
+func get_current_epoch_map() -> TileMap:
 	return available_epochs[current_epoch]
 	
 	
