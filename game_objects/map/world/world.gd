@@ -13,4 +13,6 @@ const ITEM_LIST_RES = preload("res://game_objects/items/starting_item_list.tres"
 
 func _ready():
 	item_selections.init_item_lists(past_items, present_items, future_items, starting_epoch, epoch_map)
+	AudioManager.set_primary_player(epoch_map.get_current_epoch())
+	AudioManager.sync_players()
 	

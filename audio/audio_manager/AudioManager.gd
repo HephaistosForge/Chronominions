@@ -1,10 +1,16 @@
 extends Node
 
-const background_music: Array = [
-	# input list of background music files goes here
-	# background music is randomly shuffled
-	# preload("<path_to_file>")
-	]
+const background_music_past: Array = [
+	preload("res://audio/music/background_music_past.ogg")
+]
+
+const background_music_present: Array = [
+	preload("res://audio/music/background_music_present.ogg")
+]
+
+const background_music_future: Array = [
+	preload("res://audio/music/background_music_future.ogg")
+]
 	
 # define an object like sound_example for each individual sound you want to play
 const sound_example: Array = [
@@ -20,16 +26,21 @@ const button_hover: Array = [
 	
 ]
 
-var music_volume: float = 3
-var sound_volume: float = 3
+var music_volume: float = 0
+var sound_volume: float = 50
+var current_player: AudioStreamPlayer
 
-@onready var background_player = $BackgroundMusic
+
+@onready var background_past_player = $BackgroundMusicPast
+@onready var background_present_player = $BackgroundMusicPresent
+@onready var background_future_player = $BackgroundMusicFuture
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	_on_background_music_finished()
-	set_music_volume(music_volume)
+	_on_background_music_past_finished()
+	_on_background_music_present_finished()
+	_on_background_music_future_finished()
 
 # SOUNDS
 
@@ -60,10 +71,31 @@ func set_sound_volume(percent:float) -> void:
 	sound_volume = percent
 	
 	
-func set_music_volume(percent:float) -> void:
+func set_music_volume(percent:float, player: AudioStreamPlayer) -> void:
 	music_volume = percent
-	background_player.volume_db = linear_to_db((float(music_volume)/100.0))
 
+
+func set_player_volume_db(percent: float, player: AudioStreamPlayer):
+	player.volume_db = linear_to_db((float(music_volume)/100.0))
+	player.volume_db = percent
+
+func set_primary_player(epoch: Globals.Epoch):
+	match epoch:
+		Globals.Epoch.PAST:
+			set_player_volume_db(music_volume, background_past_player)
+			set_player_volume_db(-100, background_present_player)
+			set_player_volume_db(-100, background_future_player)
+			current_player = background_past_player
+		Globals.Epoch.PRESENT:
+			set_player_volume_db(-100, background_past_player)
+			set_player_volume_db(music_volume, background_present_player)
+			set_player_volume_db(-100, background_future_player)
+			current_player = background_present_player
+		Globals.Epoch.FUTURE:
+			set_player_volume_db(-100, background_past_player)
+			set_player_volume_db(-100, background_present_player)
+			set_player_volume_db(music_volume, background_future_player)
+			current_player = background_future_player
 
 # creates a player with 
 # sound: the array defined in this script with the given sound name
@@ -87,13 +119,25 @@ func _create_sound_player(sound, position, modify = true, volume_factor: float =
 	player.finished.connect(_on_sound_finished.bind(player))
 
 
-func _on_background_music_finished() -> void:
-	if background_music.is_empty():
-		push_warning("No Background Music defined yet. Please fill the Array background_music with tracks to play")
-		return
-	background_player.stream = background_music.pick_random()
-	background_player.play()
-
-
 func _on_sound_finished(player) -> void:
 	player.queue_free()
+
+func sync_players():
+	var sync_pos = background_past_player.get_playback_position()
+	background_future_player.seek(sync_pos)
+	background_present_player.seek(sync_pos)
+
+func _on_background_music_past_finished() -> void:
+	background_past_player.stream = background_music_past.pick_random()
+	background_past_player.play()
+	sync_players()
+
+
+func _on_background_music_present_finished() -> void:
+	background_present_player.stream = background_music_present.pick_random()
+	background_present_player.play()
+
+
+func _on_background_music_future_finished() -> void:
+	background_future_player.stream = background_music_future.pick_random()
+	background_future_player.play()

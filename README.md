@@ -2,6 +2,6 @@
 
 ## Licenses
 
-Tileset
+Tileset: https://scrabling.itch.io/pixel-isometric-tiles/download/eyJleHBpcmVzIjoxNzExMTM4MjU4LCJpZCI6MTUwMzAxMH0%3d%2ex5TUR%2fPWAEmeV4VN0tdSjCLNzBk%3d
 Character: https://axulart.itch.io/small-8-direction-characters
 Effects: https://bdragon1727.itch.io/pixel-holy-spell-effect-32x32-pack-3

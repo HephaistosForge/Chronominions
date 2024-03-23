@@ -1,14 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx1d5an82dwvx"]
+[gd_scene load_steps=5 format=3 uid="uid://dx1d5an82dwvx"]
 
 [ext_resource type="Script" path="res://audio/audio_manager/AudioManager.gd" id="1_w6s5a"]
+[ext_resource type="AudioStream" uid="uid://c1y1b1wngqtbx" path="res://audio/music/background_music_past.ogg" id="2_h45o5"]
+[ext_resource type="AudioStream" uid="uid://dc3y2xgdqry5l" path="res://audio/music/background_music_present.ogg" id="3_bso5d"]
+[ext_resource type="AudioStream" uid="uid://c7qhnkvk56p0" path="res://audio/music/background_music_future.ogg" id="4_3pyjw"]
 
 [node name="AudioManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_w6s5a")
 
-[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+[node name="BackgroundMusicPast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_h45o5")
+autoplay = true
+
+[node name="BackgroundMusicPresent" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_bso5d")
+autoplay = true
+
+[node name="BackgroundMusicFuture" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3pyjw")
 autoplay = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
-[connection signal="finished" from="BackgroundMusic" to="." method="_on_background_music_finished"]
+[connection signal="finished" from="BackgroundMusicPast" to="." method="_on_background_music_past_finished"]
+[connection signal="finished" from="BackgroundMusicPresent" to="." method="_on_background_music_present_finished"]
+[connection signal="finished" from="BackgroundMusicFuture" to="." method="_on_background_music_future_finished"]
