@@ -12,11 +12,13 @@ func _ready() -> void:
 
 func fade_out(index: int):
 	var node = available_epochs[index]
+	node.propagate_call("set_visible", [false])
 	node.visible = false
 
 
 func fade_in(index: int):
 	var node = available_epochs[index]
+	node.propagate_call("set_visible", [true])
 	node.visible = true
 
 
