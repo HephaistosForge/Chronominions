@@ -1,11 +1,54 @@
-[gd_scene load_steps=3 format=3 uid="uid://fn8evxdpjpic"]
+[gd_scene load_steps=7 format=3 uid="uid://fn8evxdpjpic"]
 
 [ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_8vugm"]
+[ext_resource type="Script" path="res://game_objects/items/starting_item_list.gd" id="2_7ywi1"]
 [ext_resource type="PackedScene" uid="uid://c0vuapdbkifok" path="res://game_objects/map/epoch_map/epoch_tile_map/epoch_tile_map.tscn" id="2_oh0oy"]
+
+[sub_resource type="Resource" id="Resource_0du8u"]
+script = ExtResource("2_7ywi1")
+direction_nw = 0
+direction_ne = 0
+direction_sw = 0
+direction_se = 0
+bombs = 0
+shovels = 0
+fences = 0
+portal_past = 0
+portal_present = 0
+portal_future = 0
+
+[sub_resource type="Resource" id="Resource_hta0e"]
+script = ExtResource("2_7ywi1")
+direction_nw = 0
+direction_ne = 0
+direction_sw = 0
+direction_se = 0
+bombs = 0
+shovels = 0
+fences = 0
+portal_past = 0
+portal_present = 0
+portal_future = 0
+
+[sub_resource type="Resource" id="Resource_7n67k"]
+script = ExtResource("2_7ywi1")
+direction_nw = 0
+direction_ne = 0
+direction_sw = 0
+direction_se = 0
+bombs = 0
+shovels = 0
+fences = 0
+portal_past = 0
+portal_present = 0
+portal_future = 0
 
 [node name="Level10" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_8vugm")]
+past_items = SubResource("Resource_0du8u")
+present_items = SubResource("Resource_hta0e")
+future_items = SubResource("Resource_7n67k")
 
 [node name="Future" parent="World/EpochMap" index="0" instance=ExtResource("2_oh0oy")]
 visible = false

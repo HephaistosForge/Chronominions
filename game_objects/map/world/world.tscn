@@ -1,57 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=6 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
-[ext_resource type="Script" path="res://game_objects/items/starting_item_list.gd" id="2_is3q4"]
 [ext_resource type="Texture2D" uid="uid://cv2xw4py7cjoj" path="res://art/cloud_pixel_art_bg.png" id="3_ni841"]
 [ext_resource type="Texture2D" uid="uid://bcu78ul68ovsf" path="res://ui_scenes/button_textures/button_07_frame.png" id="4_wpw3v"]
 [ext_resource type="Script" path="res://game_objects/map/world/ItemSelections.gd" id="5_d12mu"]
 
-[sub_resource type="Resource" id="Resource_0qncc"]
-script = ExtResource("2_is3q4")
-direction_nw = 2
-direction_ne = 0
-direction_sw = 0
-direction_se = 0
-bombs = 0
-shovels = 0
-fences = 0
-portal_past = 0
-portal_present = 0
-portal_future = 0
-
-[sub_resource type="Resource" id="Resource_8wgty"]
-script = ExtResource("2_is3q4")
-direction_nw = 0
-direction_ne = 0
-direction_sw = 0
-direction_se = 0
-bombs = 0
-shovels = 2
-fences = 0
-portal_past = 0
-portal_present = 0
-portal_future = 0
-
-[sub_resource type="Resource" id="Resource_3mgxa"]
-script = ExtResource("2_is3q4")
-direction_nw = 0
-direction_ne = 0
-direction_sw = 0
-direction_se = 0
-bombs = 0
-shovels = 0
-fences = 0
-portal_past = 0
-portal_present = 0
-portal_future = 0
-
 [node name="World" type="Node2D" groups=["world"]]
 script = ExtResource("1_a2ek4")
 starting_epoch = 0
-past_items = SubResource("Resource_0qncc")
-present_items = SubResource("Resource_8wgty")
-future_items = SubResource("Resource_3mgxa")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.7, 0.7)
