@@ -1,10 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cr30mnu7112jh"]
+[gd_scene load_steps=12 format=3 uid="uid://cr30mnu7112jh"]
 
 [ext_resource type="Script" path="res://game_objects/lemmings/lemming.gd" id="1_db08k"]
 [ext_resource type="Texture2D" uid="uid://djcesm0mq6yg0" path="res://game_objects/lemmings/sprite.png" id="2_eackk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d2on2"]
-radius = 30.0
+radius = 9.48683
 
 [sub_resource type="Animation" id="Animation_0ipbq"]
 length = 0.001
@@ -60,6 +60,21 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(2.92817, 0.366022, 1),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1.195, 1.195), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_t7mla"]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
 }
 
 [sub_resource type="Animation" id="Animation_hxcxv"]
@@ -134,6 +149,7 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_0ipbq"),
 "die": SubResource("Animation_cqgyx"),
+"spawn": SubResource("Animation_t7mla"),
 "walk_ne": SubResource("Animation_hxcxv"),
 "walk_nw": SubResource("Animation_yaxm3"),
 "walk_se": SubResource("Animation_cuncu"),
@@ -141,14 +157,18 @@ _data = {
 }
 
 [node name="Lemming" type="CharacterBody2D"]
+z_index = 10
+z_as_relative = false
+y_sort_enabled = true
+collision_mask = 0
 script = ExtResource("1_db08k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -14)
 scale = Vector2(5, 5)
 texture = ExtResource("2_eackk")
 region_enabled = true
 region_rect = Rect2(16, 30, 16, 16)
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 2)
@@ -159,4 +179,5 @@ metadata/_edit_lock_ = true
 libraries = {
 "": SubResource("AnimationLibrary_gcv2c")
 }
+autoplay = "spawn"
 speed_scale = 2.0
