@@ -4,10 +4,10 @@ const bold = preload("res://ui_scenes/fonts/NovaSquare-Regular.ttf")
 const light = preload("res://ui_scenes/fonts/NovaSquare-Regular.ttf")
 const regular = preload("res://ui_scenes/fonts/NovaSquare-Regular.ttf")
 
-const GAME_TITLE = "<GAME_TITLE>"
+const GAME_TITLE = "Foresight"
 
 var music = ["Music", 
-["Title", "Author", "License"]
+["Tapping Minions Past\nTapping Minions Present\nTapping Minions Future", "Justin", "CC BY-NC-SA"]
 ]
 
 
@@ -18,20 +18,23 @@ var shader = ["Shaders",
 
 
 var sound = ["Sound Design",
-["Dummy 1",null, null]
+["Dummy 1",null, null],
+["Bomb sfx", "Christoph", null]
 ]
 
 
 var art = ["Artists",
-["Dummy 1", null, null],
+["Restro Diffusion AI", "Astropulse", null],
 ["Dummy 2",null, null],
 ]
 
 
 var programing = ["Programmers",
-["Dummy 1",null, null],
-["Dummy 2",null, null],
-["Dummy 3",null, null]
+["Brutenis",null, null],
+["Lukas",null, null],
+["Christoph",null, null],
+["Jonas",null, null],
+["Justin",null, null],
 ]
 
 
