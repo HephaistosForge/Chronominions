@@ -14,7 +14,7 @@ const VALID_TERRAIN_TYPES = [
 # Called when the node enters the scene tree for the first time.
 func _init(_direction) -> void:
 	self.direction = _direction
-	var item_name_string = "Direction " + _direction_to_string(direction)
+	var item_name_string = "Signpost to " + _direction_to_string(direction)
 	var item_type_from_dir = get_item_type_from_direction(direction)
 	super._init(item_name_string, sprite, sprite, item_type_from_dir)
 
@@ -35,13 +35,13 @@ func get_item_type_from_direction(_direction) -> Globals.ItemType:
 func _direction_to_string(_direction) -> String:
 	match _direction:
 		Globals.Direction.NE:
-			return "North-East"
+			return "NE"
 		Globals.Direction.NW:
-			return "North-West"
+			return "NW"
 		Globals.Direction.SE:
-			return "South-East"
+			return "SE"
 		Globals.Direction.SW:
-			return "South-West"
+			return "SW"
 	return ""
 
 

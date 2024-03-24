@@ -17,3 +17,6 @@ func _ready():
 	AudioManager.set_primary_player(starting_epoch)
 	AudioManager.sync_players()
 	
+
+func _on_menu_button_pressed() -> void:
+	get_tree().reload_current_scene()

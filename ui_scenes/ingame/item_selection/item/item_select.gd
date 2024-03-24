@@ -3,7 +3,7 @@ extends PanelContainer
 const CURSOR_ITEM_PREVIEW_PREFAB = preload("res://game_objects/items/cursor_item_preview/cursor_item_preview.tscn")
 
 @onready var texture_rect: TextureRect = $MarginContainer/VBoxContainer/TextureRect
-@onready var count_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/CountLabel
+@onready var count_label: Label = $MarginContainer2/Label
 @onready var item_name_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/ItemNameLabel
 
 var item: Item 
@@ -39,6 +39,7 @@ func select_item() -> void:
 	modulate = Color.GREEN
 	item_selected.emit(self)
 	cursor_item_preview = CURSOR_ITEM_PREVIEW_PREFAB.instantiate()
+	cursor_item_preview.init_texture(item.sprite_texture)
 	get_tree().get_root().add_child(cursor_item_preview)
 
 

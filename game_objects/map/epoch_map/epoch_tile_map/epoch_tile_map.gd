@@ -9,11 +9,13 @@ var fences: Dictionary = {}
 var direction_markers: Dictionary = {}
 
 const HIGHLIGHT_MATERIAL = preload("res://visual_effects/highlight_material.tres")
-
 const DIRECTION_MARKER_PREFAB = preload("res://game_objects/direction_marker/direction_marker.tscn")
+const SELECTOR_PREFAB = preload("res://game_objects/map/epoch_map/epoch_tile_map/selector.tscn")
 
 signal signal_destroy_rock(epoch: Globals.Epoch, tile_position: Vector2)
 signal signal_remove_water(epoch: Globals.Epoch, tile_position: Vector2)
+
+var selector
 
 func _input(event: InputEvent) -> void:
 	var mouse_pos = get_global_mouse_position()
@@ -21,10 +23,22 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if tile_data == null:
 			return
+	if event is InputEventMouseMotion:
+		if tile_data == null:
+			remove_selctor()
+			return
+		if not selector:
+			selector = SELECTOR_PREFAB.instantiate()
+			get_tree().root.add_child(selector)
+		selector.global_position = get_centered_tile_position_from_world_position(get_global_mouse_position())
 	#if event is InputEventMouseMotion:
 	#	if tile_data != null:
 	#		tile_data.material = HIGHLIGHT_MATERIAL
 	#		tile_data.material.set_shader_parameter("width", 1.0)
+
+func remove_selctor():
+	if is_instance_valid(selector):
+		selector.queue_free()
 
 func world_to_tile_coord(coord: Vector2) -> Vector2:
 	return local_to_map(coord)

@@ -4,7 +4,7 @@ const CREDITS_PREFAB = preload("res://ui_scenes/main_menu/credits/Credits.tscn")
 const OPTIONS_PREFAB = preload("res://ui_scenes/main_menu/options/options.tscn")
 const HOW_TO_PLAY_PREFAB = preload("res://ui_scenes/main_menu/how_to_play/how_to_play.tscn")
 
-const MAIN_SCENE_PATH: String = "res://levels/level_0/level_0.tscn"
+const MAIN_SCENE_PATH: String = "res://levels/level_6/level_6.tscn"
 
 enum display_types {
 	OPTIONS,

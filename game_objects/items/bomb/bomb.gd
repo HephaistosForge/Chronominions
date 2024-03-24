@@ -1,10 +1,11 @@
 class_name Bomb extends Item
 
-var bomb_sprite = preload("res://game_objects/items/bomb/SpellBook01_39.png")
+var bomb_sprite = preload("res://game_objects/items/bomb/en_craft_98.PNG")
+var bomb_sprite_transparent = preload("res://game_objects/items/bomb/en_craft_98t.PNG")
 
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
-	super._init("Bomb", bomb_sprite, bomb_sprite, Globals.ItemType.BOMB)
+	super._init("Bomb", bomb_sprite, bomb_sprite_transparent, Globals.ItemType.BOMB)
 
 
 func execute_item_action(curr_epoch_map: TileMap) -> bool:

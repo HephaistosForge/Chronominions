@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://game_objects/items/cursor_item_preview/cursor_item_preview.gd" id="2_r6fy6"]
 
 [node name="CursorItemPreview" type="Sprite2D"]
-scale = Vector2(0.2, 0.2)
+z_index = 4
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_qo055")
-offset = Vector2(-70, 140)
 script = ExtResource("2_r6fy6")

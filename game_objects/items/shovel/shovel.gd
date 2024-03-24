@@ -1,6 +1,7 @@
 class_name Shovel extends Item
 
-var sprite = preload("res://game_objects/items/shovel/r_12.png")
+var sprite = preload("res://game_objects/items/shovel/engeniring_28_b.png")
+var sprite_transparent = preload("res://game_objects/items/shovel/engeniring_28_t.png")
 
 const VALID_TERRAIN_TYPES = [
 	Globals.TerrainType.DEEP_WATER, 
@@ -10,7 +11,7 @@ const VALID_TERRAIN_TYPES = [
 
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
-	super._init("Shovel", sprite, sprite, Globals.ItemType.SHOVEL)
+	super._init("Shovel", sprite, sprite_transparent, Globals.ItemType.SHOVEL)
 
 
 func execute_item_action(curr_epoch_map: TileMap) -> bool:
