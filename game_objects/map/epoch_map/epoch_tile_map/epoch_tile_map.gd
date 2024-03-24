@@ -56,6 +56,7 @@ func world_to_tile_coord(coord: Vector2) -> Vector2:
 
 
 func register_direction_marker(node: Node2D, direction: Vector2):
+	print(epoch,direction_markers )
 	direction_markers[_node_to_tile_coord(node)] = direction
 
 
@@ -109,7 +110,7 @@ func is_on_fence(node: Node2D) -> bool:
 func new_direction_if_on_direction_marker(node: Node2D):
 	var tile_coord = _node_to_tile_coord(node)
 	if tile_coord in direction_markers:
-		if map_to_local(tile_coord).distance_to(_node_to_local_coord(node)) < 1:
+		if map_to_local(tile_coord).distance_to(_node_to_local_coord(node)) < 3:
 			return direction_markers[tile_coord]
 	return null
 
