@@ -5,7 +5,7 @@ const MAIN_MENU_PREFAB = preload("res://ui_scenes/main_menu/main_menu.tscn")
 func configure_popup(won: bool, minions_rescued: int, minions_total: int):
 	$"MarginContainer/VBoxContainer/HBoxContainer/You won".text = "You won!" if won else "You lost!"
 	$MarginContainer/VBoxContainer/HBoxContainer3/Stats.text = "%d / %d minions were successfully rescued!" % [minions_rescued, minions_total]
-		
+
 
 
 func _on_main_menu_pressed():
