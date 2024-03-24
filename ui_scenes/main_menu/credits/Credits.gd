@@ -4,37 +4,40 @@ const bold = preload("res://ui_scenes/fonts/NovaSquare-Regular.ttf")
 const light = preload("res://ui_scenes/fonts/NovaSquare-Regular.ttf")
 const regular = preload("res://ui_scenes/fonts/NovaSquare-Regular.ttf")
 
-const GAME_TITLE = "Foresight"
+const GAME_TITLE = "Chronominions"
 
 var music = ["Music", 
-["Tapping Minions Past\nTapping Minions Present\nTapping Minions Future", "Justin", "CC BY-NC-SA"]
+["Tapping Minions Past\nTapping Minions Present\nTapping Minions Future", "Justin Kreikemeyer", "CC BY-NC-SA 4.0"]
 ]
 
 
-var shader = ["Shaders",
-["Title", "Author", "License"],
-["Title", "Author", "License"]
+var level_design = ["Level Design",
+["Jonas Moesicke", null, null],
 ]
 
 
-var sound = ["Sound Design",
-["Dummy 1",null, null],
-["Bomb sfx", "Christoph", null]
+var sound = ["Sound Effects",
+["UI sounds","Christoph Schultz, Justin Kreikemeyer", null],
+["Boom.mp3", "Christoph Bruch", null],
+["bump.wav", "ArneBerg1987HGW", null]
 ]
 
 
 var art = ["Artists",
-["Restro Diffusion AI", "Astropulse", null],
-["Dummy 2",null, null],
+["Tileset", "https://scrabling.itch.io/", "CC BY 4.0"],
+["Minion Character", "https://axulart.itch.io/", "CC BY 4.0"],
+["Retro Diffusion AI", "Astropulse", null],
+["Midjourney AI", "", null],
 ]
 
 
 var programing = ["Programmers",
-["Brutenis",null, null],
-["Lukas",null, null],
-["Christoph",null, null],
-["Jonas",null, null],
-["Justin",null, null],
+["Brutenis Gliwa",null, null],
+["Lukas Großehagenbrock",null, null],
+["Christoph Schultz",null, null],
+["Jonas Moesicke",null, null],
+["Matthias Elwert",null, null],
+["Justin Kreikemeyer",null, null],
 ]
 
 
@@ -52,7 +55,7 @@ func _ready() -> void:
 
 
 func create_credits():
-	for section in [programing, art, sound, music, thanks, licensing]:
+	for section in [programing, level_design, art, sound, music, thanks, licensing]:
 		var section_container = VBoxContainer.new()
 		section_container.add_theme_constant_override("separation", 0)
 		var section_header = Label.new()
