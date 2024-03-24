@@ -11,6 +11,7 @@ const INGAME_MENU_PREFAB = preload("res://ui_scenes/ingame/win_popup/ingame_menu
 	Globals.Epoch.PRESENT: $Camera2D/BackgroundPresent,
 	Globals.Epoch.FUTURE: $Camera2D/BackgroundFuture
 }
+@onready var canvas_layer = $CanvasLayer
 
 
 const ITEM_LIST_RES = preload("res://game_objects/items/starting_item_list.tres")
@@ -48,7 +49,7 @@ func _unhandled_input(event):
 
 func _on_menu_button_pressed() -> void:
 	var popup = INGAME_MENU_PREFAB.instantiate()
-	self.add_child(popup)
+	canvas_layer.add_child(popup)
 
 
 func _on_cheat_button_pressed() -> void:
@@ -92,9 +93,9 @@ func check_for_win():
 func win():
 	var popup = WIN_POPUP_PREFAB.instantiate()
 	popup.configure_popup(true, evacuated_lemmings, max_lemmings)
-	add_child(popup)
+	canvas_layer.add_child(popup)
 
 func lose():
 	var popup = WIN_POPUP_PREFAB.instantiate()
 	popup.configure_popup(false, evacuated_lemmings, max_lemmings)
-	add_child(popup)
+	canvas_layer.add_child(popup)
