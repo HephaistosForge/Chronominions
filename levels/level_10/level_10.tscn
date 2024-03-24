@@ -77,7 +77,8 @@ epoch = 2
 
 [node name="LemmingSpawner" parent="World/EpochMap/Future" instance=ExtResource("4_dpqie")]
 z_index = 1
-position = Vector2(-130, -2.75)
+position = Vector2(-130, -0.25)
+init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_1jrci")]
 z_index = 1
