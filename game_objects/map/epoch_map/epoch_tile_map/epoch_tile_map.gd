@@ -2,6 +2,10 @@ extends TileMap
 
 @export var epoch : Globals.Epoch
 
+var objects_on_tiles: Dictionary = {}
+
+var fences: Dictionary = {}
+
 var direction_markers: Dictionary = {}
 
 const HIGHLIGHT_MATERIAL = preload("res://visual_effects/highlight_material.tres")
@@ -72,6 +76,11 @@ func is_on_water(node: Node2D) -> bool:
 func is_on_mountain(node: Node2D) -> bool:
 	return _node_to_tile_type(node) == Globals.Tile.BOUNCE
 
+func is_on_fence(node: Node2D) -> bool:
+	var tile_coord = _node_to_tile_coord(node)
+	return fences.has(Vector2(tile_coord))
+		
+
 func new_direction_if_on_direction_marker(node: Node2D):
 	var tile_coord = _node_to_tile_coord(node)
 	if tile_coord in direction_markers:
@@ -100,11 +109,19 @@ func on_remove_water(_epoch: Globals.Epoch, tile_position: Vector2):
 		set_cell(0, tile_position, 3, Vector2(6, 1), 0)
 
 
+func get_objects_on_tile(tile_position: Vector2):
+	if objects_on_tiles.has(tile_position):
+		return objects_on_tiles[tile_position]
+	return null
+
+
 func place_marker(tile_position: Vector2, direction: Globals.Direction):
 	var marker = DIRECTION_MARKER_PREFAB.instantiate()
 	self.add_child(marker)
 	marker.direction = direction
 	marker.global_position = to_global(map_to_local(tile_position))
+	objects_on_tiles[tile_position] = marker
+
 
 func place_portal(tile_position: Vector2, portal_epoch: Globals.Epoch, portal_scene: PackedScene):
 	var portal = portal_scene.instantiate()
@@ -112,3 +129,12 @@ func place_portal(tile_position: Vector2, portal_epoch: Globals.Epoch, portal_sc
 	portal.get_child(0).portal_direction = portal_epoch
 	portal.get_child(0).epoch = self.epoch
 	portal.global_position = to_global(map_to_local(tile_position))
+	objects_on_tiles[tile_position] = portal
+
+
+func place_fence(tile_position: Vector2, fence_scene: PackedScene):
+	var fence = fence_scene.instantiate()
+	self.add_child(fence)
+	fence.global_position = to_global(map_to_local(tile_position))
+	fences[tile_position] = fence
+	objects_on_tiles[tile_position] = fence

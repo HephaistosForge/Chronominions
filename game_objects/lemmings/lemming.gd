@@ -37,9 +37,9 @@ func _physics_process(_delta):
 	if lemming_epoch_map.is_on_water(self):
 		self.die()
 
-	if lemming_epoch_map.is_on_mountain(self):
+	if lemming_epoch_map.is_on_mountain(self) or lemming_epoch_map.is_on_fence(self):
 		self.bounce()
-
+	
 	var new_direction = lemming_epoch_map.new_direction_if_on_direction_marker(self)
 	if new_direction != null:
 		direction = new_direction
@@ -57,7 +57,7 @@ func die():
 
 
 
-func set_visibility():
+func set_visibility(_epoch=null):
 	#print("Current World Epoch: ",world.epoch_map.get_current_epoch())
 	#print("Own Epoch: ", own_epoch)
 

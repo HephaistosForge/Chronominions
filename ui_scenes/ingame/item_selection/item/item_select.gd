@@ -74,6 +74,7 @@ func _input(event: InputEvent) -> void:
 				if count <= 0:
 					modulate = Color.DARK_GRAY
 
+
 func on_item_selected(node: Node):
 	if node != self and selected:
 		deselect_item()

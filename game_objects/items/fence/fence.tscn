@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://desvrr50k2ut0"]
+
+[ext_resource type="Texture2D" uid="uid://7tdalo6xmbmw" path="res://game_objects/items/bomb/en_craft_98.PNG" id="1_mv88s"]
+[ext_resource type="Script" path="res://game_objects/items/bomb/bomb.gd" id="2_6bqn3"]
+
+[node name="Bomb" type="Sprite2D"]
+texture = ExtResource("1_mv88s")
+script = ExtResource("2_6bqn3")

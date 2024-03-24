@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmtj2hwrw13lh"]
+
+[ext_resource type="Texture2D" uid="uid://fy1crq6eud6d" path="res://game_objects/items/fence/fence_world_item/fence.png" id="1_brdxr"]
+
+[node name="FenceWorldItem" type="Sprite2D"]
+texture = ExtResource("1_brdxr")
+offset = Vector2(0, -1)

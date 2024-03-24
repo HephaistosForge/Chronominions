@@ -54,6 +54,7 @@ func get_prefab_for_epoch(_epoch):
 		Globals.Epoch.FUTURE:
 			return PORTAL_FUTURE_PREFAB
 
+
 func execute_item_action(curr_epoch_map: TileMap) -> bool:
 	if not _is_valid_target(curr_epoch_map):
 		return false
@@ -65,6 +66,8 @@ func _is_valid_target(curr_epoch_map: TileMap) -> bool:
 	var map_position = position_and_tile_data[0]
 	var tile_data = position_and_tile_data[1]
 	if tile_data == null:
+		return false
+	elif curr_epoch_map.get_objects_on_tile(map_position) != null:
 		return false
 	elif tile_data.get_terrain() in VALID_TERRAIN_TYPES:
 		curr_epoch_map.place_portal(map_position, epoch, get_prefab_for_epoch(epoch))
