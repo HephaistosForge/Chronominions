@@ -2,3 +2,4 @@
 .godot/
 requirements
 *.tmp
+dist
