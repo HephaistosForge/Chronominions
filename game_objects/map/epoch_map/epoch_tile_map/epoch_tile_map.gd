@@ -133,6 +133,8 @@ func get_objects_on_tile(tile_position: Vector2):
 
 func place_marker(tile_position: Vector2, direction: Globals.Direction):
 	signal_place_marker.emit(epoch, tile_position, direction)
+	
+func on_place_marker(_epoch: Globals.Epoch, tile_position: Vector2, direction: Globals.Direction):
 	if epoch >= _epoch and get_objects_on_tile(tile_position) == null:
 		var marker = DIRECTION_MARKER_PREFAB.instantiate()
 		self.add_child(marker)
@@ -140,6 +142,7 @@ func place_marker(tile_position: Vector2, direction: Globals.Direction):
 		marker.global_position = to_global(map_to_local(tile_position))
 		marker.register_itself_on_epoch_tile_map()
 		objects_on_tiles[tile_position] = marker
+
 
 func place_portal(tile_position: Vector2, portal_epoch: Globals.Epoch, portal_scene: PackedScene):
 	var portal = portal_scene.instantiate()
