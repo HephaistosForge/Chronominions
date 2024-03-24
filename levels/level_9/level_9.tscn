@@ -90,6 +90,6 @@ position = Vector2(95.25, -20.625)
 position = Vector2(82.625, 21.75)
 
 [node name="BombPickup3" parent="World/EpochMap/Future" instance=ExtResource("4_h7ut5")]
-position = Vector2(57.875, 22.5)
+position = Vector2(49.875, 18.5)
 
 [editable path="World"]
