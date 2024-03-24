@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3qfr4j4b7cel" path="res://game_objects/time_gate/portal_future.png" id="2_1g1kb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_41i73"]
-size = Vector2(10, 12)
+size = Vector2(7, 8)
 
 [node name="TimeGate" type="Node2D" groups=["time_gate"]]
 
@@ -13,9 +13,16 @@ script = ExtResource("1_52y65")
 portal_direction = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
-position = Vector2(6, -2)
+position = Vector2(3.5, -10)
 shape = SubResource("RectangleShape2D_41i73")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Shadow" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.145098, 0.145098, 0.145098, 0.52549)
+position = Vector2(2, -5)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_1g1kb")
-metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(2, -7)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_1g1kb")

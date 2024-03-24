@@ -14,20 +14,30 @@ func _ready() -> void:
 			if epoch1 != epoch2:
 				assert(epoch1.epoch != epoch2.epoch, "All epoch tile maps must be in different epochs")
 	
+	# Subscribe to placement events to notify all epoch maps
 	for aepoch in available_epochs:
 		aepoch.signal_destroy_rock.connect(on_destroy_rock)
 		aepoch.signal_remove_water.connect(on_remove_water)
-		
+		aepoch.signal_place_fence.connect(on_place_fence)
+		aepoch.signal_place_marker.connect(on_place_marker)
+
+# Notify Epoch maps of placement events at certain epochs
 func on_destroy_rock(epoch: Globals.Epoch, tile_position: Vector2):
 	for child in get_children():
 		if child is TileMap:
 			child.on_destroy_rock(epoch, tile_position)
-
-
 func on_remove_water(epoch: Globals.Epoch, tile_position: Vector2):
 	for child in get_children():
 		if child is TileMap:
 			child.on_remove_water(epoch, tile_position)
+func on_place_fence(epoch: Globals.Epoch, tile_position: Vector2, fence_scene: PackedScene):
+	for child in get_children():
+		if child is TileMap:
+			child.on_place_fence(epoch, tile_position, fence_scene)
+func on_place_marker(epoch: Globals.Epoch, tile_position: Vector2, direction: Globals.Direction):
+	for child in get_children():
+		if child is TileMap:
+			child.on_place_marker(epoch, tile_position, direction)
 
 
 func fade_out(index: int) -> void:
