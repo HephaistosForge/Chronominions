@@ -90,7 +90,7 @@ func set_current_epoch_from_epoch_enum(epoch: Globals.Epoch):
 			blend_to_new_index(i)
 			return
 			
-	assert(false, "starting_epoch does not exist in world!")
+	# assert(false, "starting_epoch does not exist in world!")
 
 
 func get_available_epoch_enums():

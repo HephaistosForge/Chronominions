@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=21 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dpaa7s5b30hu8" path="res://ui_scenes/slider_textures/slider_bg.png" id="10_vdrwh"]
 [ext_resource type="Texture2D" uid="uid://bkjirk2lllmso" path="res://ui_scenes/slider_textures/slider_handle.png" id="11_jayef"]
 [ext_resource type="Script" path="res://game_objects/map/world/time_slider_handle.gd" id="12_8607s"]
+[ext_resource type="Script" path="res://game_objects/map/world/HiddenSliderButton.gd" id="12_ux5g2"]
 [ext_resource type="Texture2D" uid="uid://b14ciya1beq76" path="res://ui_scenes/button_textures/speed1.png" id="15_7qwd3"]
 [ext_resource type="Texture2D" uid="uid://ydg3vsy27dmi" path="res://ui_scenes/button_textures/speed2.png" id="16_ldypi"]
 [ext_resource type="Script" path="res://game_objects/map/world/SpeedUpButton.gd" id="16_uwrdd"]
@@ -226,6 +227,53 @@ layout_mode = 2
 texture_normal = ExtResource("19_ohlni")
 script = ExtResource("16_uwrdd")
 speed_up = 10.0
+
+[node name="PastSliderButton" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.0156863)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 6.0
+offset_top = 45.0
+offset_right = 106.0
+offset_bottom = 145.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+tooltip_text = "go back in time"
+texture_normal = ExtResource("4_wpw3v")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("12_ux5g2")
+
+[node name="PresentSliderButton" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.0156863)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 222.0
+offset_top = 45.0
+offset_right = 322.0
+offset_bottom = 145.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+tooltip_text = "go back in time"
+texture_normal = ExtResource("4_wpw3v")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("12_ux5g2")
+epoch = 1
+
+[node name="FutureSliderButton" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.0156863)
+custom_minimum_size = Vector2(100, 100)
+offset_left = 470.0
+offset_top = 45.0
+offset_right = 570.0
+offset_bottom = 145.0
+size_flags_horizontal = 2
+size_flags_vertical = 3
+tooltip_text = "go back in time"
+texture_normal = ExtResource("4_wpw3v")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("12_ux5g2")
+epoch = 2
 
 [connection signal="epoch_changed" from="EpochMap" to="." method="_on_epoch_map_epoch_changed"]
 [connection signal="epoch_changed" from="EpochMap" to="CanvasLayer/VBoxContainer/SliderHandle" method="_on_epoch_map_epoch_changed"]
