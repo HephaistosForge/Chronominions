@@ -1,5 +1,7 @@
 extends Node2D
 
+const WIN_POPUP_PREFAB = preload("res://ui_scenes/ingame/win_popup/win_popup.tscn")
+
 @onready var epoch_map = $EpochMap
 @onready var item_selections = $CanvasLayer/ItemSelections
 @onready var EPOCH_TO_BACKGROUND_IMAGE = {
@@ -75,12 +77,15 @@ func check_for_win():
 	if evacuated_lemmings > 0:
 		win()
 	else:
-		loose()
+		lose()
 
 
 func win():
-	print("WIN")
+	var popup = WIN_POPUP_PREFAB.instantiate()
+	popup.configure_popup(true, evacuated_lemmings, max_lemmings)
+	add_child(popup)
 
-
-func loose():
-	print("LOOSE")
+func lose():
+	var popup = WIN_POPUP_PREFAB.instantiate()
+	popup.configure_popup(false, evacuated_lemmings, max_lemmings)
+	add_child(popup)
