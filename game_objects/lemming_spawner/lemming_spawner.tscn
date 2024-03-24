@@ -9,6 +9,7 @@ y_sort_enabled = true
 script = ExtResource("1_k8wrn")
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 2.5
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

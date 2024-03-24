@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bibjv6lsyuue5"]
+[gd_scene load_steps=10 format=3 uid="uid://bibjv6lsyuue5"]
 
 [ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_jdmwe"]
 [ext_resource type="Script" path="res://game_objects/items/starting_item_list.gd" id="2_5d0hi"]
 [ext_resource type="PackedScene" uid="uid://c0vuapdbkifok" path="res://game_objects/map/epoch_map/epoch_tile_map/epoch_tile_map.tscn" id="2_kref2"]
 [ext_resource type="PackedScene" uid="uid://cfiv0ufmapcy1" path="res://game_objects/lemming_spawner/lemming_spawner.tscn" id="4_0pab7"]
 [ext_resource type="PackedScene" uid="uid://bnmtihuiugbgs" path="res://game_objects/lemming_despawner/lemming_despawner.tscn" id="5_irdpo"]
+[ext_resource type="PackedScene" uid="uid://cn26tm76dco8s" path="res://ui_scenes/tutorial_popup/tutorial_popup.tscn" id="6_nbgdj"]
 
 [sub_resource type="Resource" id="Resource_oubib"]
 script = ExtResource("2_5d0hi")
@@ -68,5 +69,8 @@ epoch = 2
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_irdpo")]
 position = Vector2(64.375, -43.375)
+
+[node name="WinPopup" parent="World/CanvasLayer" index="6" instance=ExtResource("6_nbgdj")]
+variant = 4
 
 [editable path="World"]
