@@ -13,6 +13,9 @@ func _ready() -> void:
 		for epoch2 in available_epochs:
 			if epoch1 != epoch2:
 				assert(epoch1.epoch != epoch2.epoch, "All epoch tile maps must be in different epochs")
+				
+	for epoch in available_epochs:
+		epoch.visible = false
 	
 	# Subscribe to placement events to notify all epoch maps
 	for aepoch in available_epochs:
