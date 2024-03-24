@@ -62,10 +62,10 @@ epoch = 1
 position = Vector2(-96.125, 1.25)
 
 [node name="LemmingDespawner" parent="World/EpochMap/Present" instance=ExtResource("5_ic86i")]
-position = Vector2(0.375, 36.375)
+position = Vector2(0.375, 36.625)
 
 [node name="BombPickup" parent="World/EpochMap/Present" instance=ExtResource("6_lc0ha")]
-position = Vector2(64.75, 15.125)
+position = Vector2(64.125, 15.75)
 
 [node name="Future" parent="World/EpochMap" index="1" instance=ExtResource("2_vuvlu")]
 visible = false
@@ -73,6 +73,6 @@ layer_0/tile_data = PackedInt32Array(262141, 524291, 8, 196606, 393219, 8, 13107
 epoch = 2
 
 [node name="ShovelPickup" parent="World/EpochMap/Future" instance=ExtResource("7_7ivmb")]
-position = Vector2(-32.125, -33)
+position = Vector2(-32.125, -32.375)
 
 [editable path="World"]
