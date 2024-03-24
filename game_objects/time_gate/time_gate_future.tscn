@@ -1,16 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu1j12yv7o3mp"]
+[gd_scene load_steps=2 format=3 uid="uid://cu1j12yv7o3mp"]
 
-[ext_resource type="Script" path="res://game_objects/time_gate/time_gate.gd" id="1_52y65"]
-[ext_resource type="Texture2D" uid="uid://3qfr4j4b7cel" path="res://game_objects/time_gate/portal_future.png" id="2_1g1kb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_41i73"]
-size = Vector2(7, 8)
+[ext_resource type="PackedScene" uid="uid://cl1xmtoje4g5m" path="res://game_objects/time_gate/time_gate_abstract.tscn" id="1_bu2bc"]
 
 [node name="TimeGate" type="Node2D" groups=["time_gate"]]
 
-[node name="Node2D" type="Area2D" parent="."]
-script = ExtResource("1_52y65")
+[node name="Node2D2" parent="." instance=ExtResource("1_bu2bc")]
 portal_direction = 2
+epoch = 1
 
 [node name="RoundLeft" parent="Node2D2" index="0"]
 color = Color(0.207843, 0.2, 0.898039, 1)
