@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cl1xmtoje4g5m"]
+[gd_scene load_steps=14 format=3 uid="uid://cl1xmtoje4g5m"]
 
 [ext_resource type="Script" path="res://game_objects/time_gate/time_gate.gd" id="1_koeap"]
 [ext_resource type="Texture2D" uid="uid://b41vi57bfc2yh" path="res://art/mockup/basic_portal.png" id="2_nepk0"]
 [ext_resource type="Texture2D" uid="uid://ccwsoj310nfv8" path="res://art/mockup/basic_porta_contour2l.png" id="3_g7d2s"]
+[ext_resource type="Texture2D" uid="uid://dxya8y0bcv2ak" path="res://art/mockup/basic_porta_contour32l.png" id="3_h1f3h"]
 
 [sub_resource type="Curve" id="Curve_2fqf8"]
 min_value = -200.0
@@ -41,6 +42,7 @@ radius = 14.0
 [node name="Node2D" type="Area2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_koeap")
+metadata/_edit_lock_ = true
 
 [node name="RoundLeft" type="CPUParticles2D" parent="."]
 position = Vector2(0, -18)
@@ -122,6 +124,12 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_nepk0")
 metadata/_edit_lock_ = true
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.0196078, 0.32549, 0.054902, 1)
+position = Vector2(0, -18)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_h1f3h")
+
 [node name="Sprite2D3" type="Sprite2D" parent="."]
 modulate = Color(0.168627, 0.654902, 0.329412, 0.784314)
 position = Vector2(0, -18)
@@ -131,3 +139,4 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_syyer")
+metadata/_edit_lock_ = true

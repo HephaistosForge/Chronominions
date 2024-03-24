@@ -7,25 +7,28 @@
 [node name="Node2D2" parent="." instance=ExtResource("1_ckh8c")]
 portal_direction = 1
 
-[node name="RoundLeft" parent="Node2D2" index="1"]
+[node name="RoundLeft" parent="Node2D2" index="0"]
 color = Color(0.780392, 0.0313726, 0.356863, 1)
 hue_variation_min = -0.1
 hue_variation_max = 0.1
 
-[node name="RoundRight" parent="Node2D2" index="2"]
+[node name="RoundRight" parent="Node2D2" index="1"]
 color = Color(0.988235, 0.223529, 0.345098, 1)
 hue_variation_min = -0.1
 hue_variation_max = 0.1
 
-[node name="ExpoLeft" parent="Node2D2" index="3"]
+[node name="ExpoLeft" parent="Node2D2" index="2"]
 color = Color(0.835294, 0.14902, 0.505882, 1)
 hue_variation_min = 0.0
 hue_variation_max = 0.0
 
-[node name="ExpoRight" parent="Node2D2" index="4"]
+[node name="ExpoRight" parent="Node2D2" index="3"]
 color = Color(0.858824, 0.235294, 0.431373, 1)
 hue_variation_min = 0.0
 hue_variation_max = 0.0
+
+[node name="Sprite2D2" parent="Node2D2" index="5"]
+modulate = Color(0.364706, 0.0705882, 0.0117647, 0.721569)
 
 [node name="Sprite2D3" parent="Node2D2" index="6"]
 modulate = Color(0.968627, 0.203922, 0.392157, 0.784314)

@@ -12,22 +12,25 @@ point_count = 2
 [node name="Node2D2" parent="." instance=ExtResource("1_qu52o")]
 epoch = 2
 
-[node name="RoundLeft" parent="Node2D2" index="1"]
+[node name="RoundLeft" parent="Node2D2" index="0"]
 color = Color(0.870588, 0.862745, 0.0666667, 1)
 
-[node name="RoundRight" parent="Node2D2" index="2"]
+[node name="RoundRight" parent="Node2D2" index="1"]
 color = Color(0.701961, 0.733333, 0.176471, 1)
 
-[node name="ExpoLeft" parent="Node2D2" index="3"]
+[node name="ExpoLeft" parent="Node2D2" index="2"]
 color = Color(0.960784, 0.976471, 0.529412, 1)
 hue_variation_min = 0.0
 hue_variation_max = 0.0
 
-[node name="ExpoRight" parent="Node2D2" index="4"]
+[node name="ExpoRight" parent="Node2D2" index="3"]
 color = Color(0.984314, 0.984314, 0.643137, 1)
 hue_variation_min = 0.0
 hue_variation_max = 0.0
 hue_variation_curve = SubResource("Curve_nnp4w")
+
+[node name="Sprite2D2" parent="Node2D2" index="5"]
+modulate = Color(0.341176, 0.309804, 0.141176, 0.85098)
 
 [node name="Sprite2D3" parent="Node2D2" index="6"]
 modulate = Color(0.878431, 0.878431, 0.0784314, 0.796078)
