@@ -87,7 +87,9 @@ func play_place_portal() -> void:
 	_create_sound_player(place_portal.pick_random(), null, false, 0.5)
 	
 func play_minion_sound() -> void:
-	_create_sound_player(minion_sound.pick_random(), null, false, 0.05)
+	var rand = RandomNumberGenerator.new().randf_range(0, 100)
+	if rand <= 25:
+		_create_sound_player(minion_sound.pick_random(), null, true, 0.05)
 
 # HELPER
 func set_sound_volume(percent:float) -> void:
