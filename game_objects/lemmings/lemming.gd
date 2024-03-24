@@ -4,6 +4,7 @@ class_name Lemming extends CharacterBody2D
 @onready var time_gates: Array
 @export var own_epoch: Globals.Epoch
 const speed = 50
+var dead = false
 
 signal death
 
@@ -30,6 +31,8 @@ func _ready():
 
 
 func _physics_process(_delta):
+	if dead:
+		return
 
 	move_and_collide(direction * speed * _delta)
 	var lemming_epoch_map = world.epoch_map.get_epoch_map_from_epoch_enum(own_epoch)
@@ -52,6 +55,7 @@ func bounce():
 	direction = -direction
 
 func die():
+	dead = true
 	death.emit()
 	# Animation player queue_frees lemming
 	var tween = create_tween()
