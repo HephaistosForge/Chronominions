@@ -110,6 +110,7 @@ offset_top = -50.0
 offset_right = 100.0
 offset_bottom = 50.0
 grow_vertical = 2
+theme_override_constants/margin_left = 32
 theme_override_constants/margin_bottom = 175
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer/MarginContainer2"]
