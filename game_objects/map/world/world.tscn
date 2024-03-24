@@ -44,7 +44,7 @@ position = Vector2(0, -150)
 layer = 128
 
 [node name="CheatButton" type="TextureButton" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 0.866667, 0.847059, 0.0196078)
 offset_left = 1464.0
 offset_top = 75.0
 offset_right = 1484.0
