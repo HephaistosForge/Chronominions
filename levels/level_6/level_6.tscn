@@ -76,7 +76,7 @@ epoch = 2
 
 [node name="LemmingSpawner" parent="World/EpochMap/Future" instance=ExtResource("5_qwapp")]
 position = Vector2(-113.625, -7.5)
-lemming_population = 500
+init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("7_fnexd")]
 position = Vector2(14.375, 27.875)
