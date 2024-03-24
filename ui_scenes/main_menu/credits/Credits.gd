@@ -19,7 +19,8 @@ var level_design = ["Level Design",
 var sound = ["Sound Effects",
 ["UI sounds","Christoph Schultz, Justin Kreikemeyer", null],
 ["Boom.mp3", "Christoph Bruch", null],
-["bump.wav", "ArneBerg1987HGW", null]
+["bump.wav", "ArneBerg1987HGW", null],
+["\"yipee\"(multiple)", "robot/joggerjoe's kids", null]
 ]
 
 

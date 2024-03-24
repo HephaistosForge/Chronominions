@@ -18,6 +18,13 @@ const sound_example: Array = [
 	# # preload("<path_to_file>")
 ]
 
+const minion_sound: Array = [
+	preload("res://audio/sound_effects/sfx_yipiiieh.wav"),
+	preload("res://audio/sound_effects/sfx_yipeeh.wav"),
+	preload("res://audio/sound_effects/sfx_yipiyipiyoh.wav"),
+	preload("res://audio/sound_effects/sfx_wahahaoow.wav"),
+]
+
 const button_click: Array = [
 	preload("res://audio/sound_effects/ui_click.wav")
 ]
@@ -78,6 +85,9 @@ func play_place_bomb() -> void:
 
 func play_place_portal() -> void:
 	_create_sound_player(place_portal.pick_random(), null, false, 0.5)
+	
+func play_minion_sound() -> void:
+	_create_sound_player(minion_sound.pick_random(), null, false, 0.05)
 
 # HELPER
 func set_sound_volume(percent:float) -> void:

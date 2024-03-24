@@ -63,6 +63,7 @@ func die():
 	tween.set_trans(Tween.TRANS_QUAD)
 	tween.tween_property(self, "position", position + Vector2(0, 100), 0.1)
 	$AnimationPlayer.play("die")
+	AudioManager.play_minion_sound()
 
 
 func set_visibility(_epoch=null):
