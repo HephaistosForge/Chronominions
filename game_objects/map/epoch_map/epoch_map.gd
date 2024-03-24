@@ -17,6 +17,7 @@ func _ready() -> void:
 	for aepoch in available_epochs:
 		aepoch.signal_destroy_rock.connect(on_destroy_rock)
 		aepoch.signal_remove_water.connect(on_remove_water)
+		aepoch.signal_place_fence.connect(on_place_fence)
 		
 func on_destroy_rock(epoch: Globals.Epoch, tile_position: Vector2):
 	for child in get_children():
@@ -28,6 +29,12 @@ func on_remove_water(epoch: Globals.Epoch, tile_position: Vector2):
 	for child in get_children():
 		if child is TileMap:
 			child.on_remove_water(epoch, tile_position)
+
+
+func on_place_fence(epoch: Globals.Epoch, tile_position: Vector2, fence_scene: PackedScene):
+	for child in get_children():
+		if child is TileMap:
+			child.on_place_fence(epoch, tile_position, fence_scene)
 
 
 func fade_out(index: int) -> void:

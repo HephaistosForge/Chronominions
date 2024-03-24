@@ -14,6 +14,7 @@ const SELECTOR_PREFAB = preload("res://game_objects/map/epoch_map/epoch_tile_map
 
 signal signal_destroy_rock(epoch: Globals.Epoch, tile_position: Vector2)
 signal signal_remove_water(epoch: Globals.Epoch, tile_position: Vector2)
+signal signal_place_fence(epoch: Globals.Epoch, tile_position: Vector2)
 
 var selector
 
@@ -106,8 +107,6 @@ func new_direction_if_on_direction_marker(node: Node2D):
 func destroy_rock(tile_position: Vector2):
 	signal_destroy_rock.emit(epoch, tile_position)
 	#set_cell(0, tile_position, 3, Vector2(6, 5), 0)
-
-
 func on_destroy_rock(_epoch: Globals.Epoch, tile_position: Vector2):
 	if epoch >= _epoch:
 		set_cell(0, tile_position, 3, Vector2(6, 5), 0)
@@ -116,8 +115,6 @@ func on_destroy_rock(_epoch: Globals.Epoch, tile_position: Vector2):
 func remove_water(tile_position: Vector2):
 	signal_remove_water.emit(epoch, tile_position)
 	#set_cell(0, tile_position, 3, Vector2(6, 1), 0)
-
-
 func on_remove_water(_epoch: Globals.Epoch, tile_position: Vector2):
 	if epoch >= _epoch:
 		set_cell(0, tile_position, 3, Vector2(6, 1), 0)
@@ -147,8 +144,11 @@ func place_portal(tile_position: Vector2, portal_epoch: Globals.Epoch, portal_sc
 
 
 func place_fence(tile_position: Vector2, fence_scene: PackedScene):
-	var fence = fence_scene.instantiate()
-	self.add_child(fence)
-	fence.global_position = to_global(map_to_local(tile_position))
-	fences[tile_position] = fence
-	objects_on_tiles[tile_position] = fence
+	signal_place_fence.emit(epoch, tile_position, fence_scene)
+func on_place_fence(_epoch: Globals.Epoch, tile_position: Vector2, fence_scene: PackedScene):
+	if epoch >= _epoch:
+		var fence = fence_scene.instantiate()
+		self.add_child(fence)
+		fence.global_position = to_global(map_to_local(tile_position))
+		fences[tile_position] = fence
+		objects_on_tiles[tile_position] = fence
