@@ -7,7 +7,6 @@ func configure_popup(won: bool, minions_rescued: int, minions_total: int):
 	$MarginContainer/VBoxContainer/HBoxContainer3/Stats.text = "%d / %d minions were successfully rescued!" % [minions_rescued, minions_total]
 
 
-
 func _on_main_menu_pressed():
 	get_tree().change_scene_to_packed(MAIN_MENU_PREFAB)
 
