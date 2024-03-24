@@ -1,29 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2sij2maj6kep"]
+[gd_scene load_steps=2 format=3 uid="uid://c2sij2maj6kep"]
 
-[ext_resource type="Script" path="res://game_objects/time_gate/time_gate.gd" id="1_s6k17"]
-[ext_resource type="Texture2D" uid="uid://dxkg4argf3cx0" path="res://game_objects/time_gate/portal_present.png" id="2_6qi3u"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6uj30"]
-size = Vector2(11, 12)
+[ext_resource type="PackedScene" uid="uid://cl1xmtoje4g5m" path="res://game_objects/time_gate/time_gate_abstract.tscn" id="1_ckh8c"]
 
 [node name="TimeGate" type="Node2D" groups=["time_gate"]]
 
-[node name="Node2D" type="Area2D" parent="."]
-script = ExtResource("1_s6k17")
+[node name="Node2D2" parent="." instance=ExtResource("1_ckh8c")]
 portal_direction = 1
-epoch = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
-position = Vector2(1.5, -7)
-shape = SubResource("RectangleShape2D_6uj30")
+[node name="RoundLeft" parent="Node2D2" index="1"]
+color = Color(0.780392, 0.0313726, 0.356863, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
 
-[node name="Shadow" type="Sprite2D" parent="Node2D"]
-modulate = Color(0.117647, 0.117647, 0.117647, 0.639216)
-position = Vector2(-2, -4)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("2_6qi3u")
+[node name="RoundRight" parent="Node2D2" index="2"]
+color = Color(0.988235, 0.223529, 0.345098, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.1
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(-2, -6)
-scale = Vector2(0.65, 0.65)
-texture = ExtResource("2_6qi3u")
+[node name="ExpoLeft" parent="Node2D2" index="3"]
+color = Color(0.835294, 0.14902, 0.505882, 1)
+hue_variation_min = 0.0
+hue_variation_max = 0.0
+
+[node name="ExpoRight" parent="Node2D2" index="4"]
+color = Color(0.858824, 0.235294, 0.431373, 1)
+hue_variation_min = 0.0
+hue_variation_max = 0.0
+
+[node name="Sprite2D3" parent="Node2D2" index="6"]
+modulate = Color(0.968627, 0.203922, 0.392157, 0.784314)
+
+[editable path="Node2D2"]
