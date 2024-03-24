@@ -1,10 +1,48 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8cpl7nb4rqxo"]
+[gd_scene load_steps=7 format=3 uid="uid://b8cpl7nb4rqxo"]
 
 [ext_resource type="Script" path="res://game_objects/pickups/pickup_area.gd" id="1_kjoq7"]
 [ext_resource type="Texture2D" uid="uid://cignsk8ayypmf" path="res://game_objects/pickups/bomb.png" id="2_xdvjo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jha1f"]
 radius = 0.760263
+
+[sub_resource type="Animation" id="Animation_lyn6x"]
+resource_name = "hover"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.0001, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -0.333333), Vector2(0, -0.25), Vector2(0, -0.333333)]
+}
+
+[sub_resource type="Animation" id="Animation_1rfk8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -0.333333)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cohvw"]
+_data = {
+"RESET": SubResource("Animation_1rfk8"),
+"hover": SubResource("Animation_lyn6x")
+}
 
 [node name="BombPickup" type="Area2D"]
 z_index = 1
@@ -19,3 +57,9 @@ texture = ExtResource("2_xdvjo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_jha1f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cohvw")
+}
+autoplay = "hover"
