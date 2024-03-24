@@ -4,7 +4,6 @@ class_name TimeGate extends Area2D
 @export var epoch: Globals.Epoch
 
 
-
 func _ready():
 	self.body_entered.connect(self._on_body_enter)
 	

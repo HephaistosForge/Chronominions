@@ -16,8 +16,8 @@ func get_music_volume():
 	
 	
 func set_music_volume(value):
-	AudioManager.set_music_volume(value)
-	
+	#AudioManager.set_music_volume(value)
+	pass
 	
 func get_sound_volume():
 	return AudioManager.sound_volume

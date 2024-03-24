@@ -15,7 +15,6 @@ var past_item_selection
 var epoch_map
 
 
-
 func get_item_list_for_epoch(epoch: Globals.Epoch):
 	match epoch:
 		Globals.Epoch.PAST:
@@ -67,3 +66,5 @@ func set_active_item_list(epoch: Globals.Epoch):
 
 func _on_epoch_changed(epoch: Globals.Epoch):
 	set_active_item_list(epoch)
+	for i in [past_item_selection, present_item_selection, future_item_selection]:
+		i._on_item_selected(self)

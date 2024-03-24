@@ -87,5 +87,13 @@ func remove_water(tile_position: Vector2):
 
 func place_marker(tile_position: Vector2, direction: Globals.Direction):
 	var marker = DIRECTION_MARKER_PREFAB.instantiate()
-	marker.direction = direction
 	self.add_child(marker)
+	marker.direction = direction
+	marker.global_position = to_global(map_to_local(tile_position))
+
+func place_portal(tile_position: Vector2, portal_epoch: Globals.Epoch, portal_scene: PackedScene):
+	var portal = portal_scene.instantiate()
+	self.add_child(portal)
+	portal.get_child(0).portal_direction = portal_epoch
+	portal.get_child(0).epoch = self.epoch
+	portal.global_position = to_global(map_to_local(tile_position))

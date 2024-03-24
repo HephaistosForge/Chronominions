@@ -16,8 +16,6 @@ func _ready():
 	epoch = get_parent().epoch
 
 
-
-	
 func _on_timer_timeout():
 	if lemming_population:
 		var lemming_scene = LEMMING_SCENE.instantiate()

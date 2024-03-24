@@ -11,7 +11,6 @@ size = Vector2(10, 12)
 [node name="Node2D" type="Area2D" parent="."]
 script = ExtResource("1_52y65")
 portal_direction = 2
-epoch = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
 position = Vector2(6, -2)

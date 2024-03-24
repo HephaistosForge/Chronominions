@@ -67,16 +67,12 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if event.button_index == 1 and selected:
 			var curr_epoch_map = get_tree().get_first_node_in_group("world").epoch_map.get_current_epoch_map()
-			var item_instance = item.duplicate()
-			self.add_child(item_instance)
-			if item_instance.execute_item_action(curr_epoch_map):
+			if item.execute_item_action(curr_epoch_map):
 				self.count -= 1
 				set_count_label(self.count)
 				deselect_item()
 				if count <= 0:
 					modulate = Color.DARK_GRAY
-			else:
-				item_instance.queue_free()
 
 func on_item_selected(node: Node):
 	if node != self and selected:

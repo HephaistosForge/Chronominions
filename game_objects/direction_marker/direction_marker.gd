@@ -1,7 +1,6 @@
 @tool
 extends Area2D
 
-
 @export var direction: Globals.Direction = Globals.Direction.NW:
 	set(new_direction):
 		direction = new_direction
@@ -17,7 +16,7 @@ extends Area2D
 				Globals.Direction.SE: Vector2(1, 2),
 				Globals.Direction.SW: Vector2(2, 1),
 				Globals.Direction.NW: Vector2(1, 2),
-			}[new_direction] * 8
+			}[new_direction]
 			
 func _ready():
 	var parent = get_parent()

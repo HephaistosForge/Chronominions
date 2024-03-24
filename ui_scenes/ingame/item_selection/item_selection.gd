@@ -13,9 +13,9 @@ func initialize_item_selection(starting_items_list: StartingItemsList):
 	init_item_selection_items(Bomb.new(), starting_items_list.bombs)
 	init_item_selection_items(Shovel.new(), starting_items_list.shovels)
 	init_item_selection_items(Bomb.new(), starting_items_list.fences)
-	init_item_selection_items(Bomb.new(), starting_items_list.portal_past)
-	init_item_selection_items(Bomb.new(), starting_items_list.portal_present)
-	init_item_selection_items(Bomb.new(), starting_items_list.portal_future)
+	init_item_selection_items(TimePortalItem.new(Globals.Epoch.PAST), starting_items_list.portal_past)
+	init_item_selection_items(TimePortalItem.new(Globals.Epoch.PRESENT), starting_items_list.portal_present)
+	init_item_selection_items(TimePortalItem.new(Globals.Epoch.FUTURE), starting_items_list.portal_future)
 
 func init_item_selection_items(item, count):
 	if count <= 0:

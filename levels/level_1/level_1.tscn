@@ -46,6 +46,7 @@ portal_future = 0
 [node name="Level1" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_c0sxu")]
+starting_epoch = 1
 past_items = SubResource("Resource_2vfsh")
 present_items = SubResource("Resource_udau8")
 future_items = SubResource("Resource_v2ht1")
