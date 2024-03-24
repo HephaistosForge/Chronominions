@@ -62,7 +62,7 @@ position = Vector2(-96.25, 0.375)
 init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Past" instance=ExtResource("5_gb86q")]
-position = Vector2(-51.5, 17.125)
+position = Vector2(-47.625, 12.875)
 
 [node name="Present" parent="World/EpochMap" index="1" instance=ExtResource("2_kdsgc")]
 visible = false

@@ -76,13 +76,11 @@ layer_0/tile_data = PackedInt32Array(262145, 65539, 6, 196609, 65539, 6, 131074,
 epoch = 2
 
 [node name="LemmingSpawner" parent="World/EpochMap/Future" instance=ExtResource("4_dpqie")]
-z_index = 1
 position = Vector2(-130, -0.25)
 init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_1jrci")]
-z_index = 1
-position = Vector2(109.875, -21)
+position = Vector2(112.375, -19.5)
 
 [node name="BombPickup" parent="." instance=ExtResource("4_n8428")]
 position = Vector2(-18, -195)
