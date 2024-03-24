@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="EasterJam2024"
+config/name="Chronominions"
 run/main_scene="res://ui_scenes/main_menu/main_menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
