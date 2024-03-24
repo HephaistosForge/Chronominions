@@ -24,6 +24,7 @@ var speed = 20
 
 func _ready() -> void:
 	target = get_random_target()
+	AudioManager.set_primary_player(Globals.Epoch.PRESENT)
 
 func _process(delta: float) -> void:
 	curr += curr.direction_to(target).normalized() * delta * speed

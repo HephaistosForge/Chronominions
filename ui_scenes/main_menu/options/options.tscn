@@ -12,6 +12,7 @@ script = ExtResource("2_fqv7p")
 
 [node name="Musik" type="HBoxContainer" parent="."]
 layout_mode = 2
+tooltip_text = "Adjust the volume of the background music."
 theme_override_constants/separation = 10
 alignment = 2
 
@@ -36,6 +37,7 @@ horizontal_alignment = 1
 
 [node name="Sound" type="HBoxContainer" parent="."]
 layout_mode = 2
+tooltip_text = "Adjust the volume of sound effects."
 theme_override_constants/separation = 10
 alignment = 2
 
@@ -58,6 +60,28 @@ layout_mode = 2
 text = "100"
 horizontal_alignment = 1
 
+[node name="MusicMode" type="HBoxContainer" parent="."]
+layout_mode = 2
+tooltip_text = "The future becomes the past and the past becomes the future."
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="MusicMode"]
+layout_mode = 2
+text = "Antithetic Music Mode"
+
+[node name="CenterContainer" type="CenterContainer" parent="MusicMode"]
+layout_mode = 2
+
+[node name="CheckButton" type="CheckButton" parent="MusicMode/CenterContainer"]
+layout_mode = 2
+
+[node name="ModeVal" type="Label" parent="MusicMode"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "off"
+horizontal_alignment = 1
+
 [connection signal="value_changed" from="Musik/CenterContainer2/Music_Slide" to="." method="_on_music_slide_value_changed"]
 [connection signal="drag_ended" from="Sound/CenterContainer/Sound_Slide" to="." method="_on_sound_slide_drag_ended"]
 [connection signal="value_changed" from="Sound/CenterContainer/Sound_Slide" to="." method="_on_sound_slide_value_changed"]
+[connection signal="toggled" from="MusicMode/CenterContainer/CheckButton" to="." method="_on_check_button_toggled"]

@@ -8,6 +8,9 @@ const HIGHLIGHT_MATERIAL = preload("res://visual_effects/highlight_material.tres
 
 const DIRECTION_MARKER_PREFAB = preload("res://game_objects/direction_marker/direction_marker.tscn")
 
+signal signal_destroy_rock(epoch: Globals.Epoch, tile_position: Vector2)
+signal signal_remove_water(epoch: Globals.Epoch, tile_position: Vector2)
+
 func _input(event: InputEvent) -> void:
 	var mouse_pos = get_global_mouse_position()
 	var tile_data = get_tile_data_at_mouse_pos()
@@ -77,13 +80,25 @@ func new_direction_if_on_direction_marker(node: Node2D):
 	return null
 
 # HANDLE TILE_MAP_CHANGES
-func destroy_rock(tile_position):
-	set_cell(0, tile_position, 3, Vector2(6, 5), 0)
+func destroy_rock(tile_position: Vector2):
+	signal_destroy_rock.emit(epoch, tile_position)
+	#set_cell(0, tile_position, 3, Vector2(6, 5), 0)
+
+
+func on_destroy_rock(_epoch: Globals.Epoch, tile_position: Vector2):
+	if epoch >= _epoch:
+		set_cell(0, tile_position, 3, Vector2(6, 5), 0)
 
 
 func remove_water(tile_position: Vector2):
-	set_cell(0, tile_position, 3, Vector2(6, 1), 0)
-	
+	signal_remove_water.emit(epoch, tile_position)
+	#set_cell(0, tile_position, 3, Vector2(6, 1), 0)
+
+
+func on_remove_water(_epoch: Globals.Epoch, tile_position: Vector2):
+	if epoch >= _epoch:
+		set_cell(0, tile_position, 3, Vector2(6, 1), 0)
+
 
 func place_marker(tile_position: Vector2, direction: Globals.Direction):
 	var marker = DIRECTION_MARKER_PREFAB.instantiate()

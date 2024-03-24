@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var current_epoch = 0
+var current_epoch = 0
 
 @onready var available_epochs: Array
 
@@ -14,6 +14,21 @@ func _ready() -> void:
 			if epoch1 != epoch2:
 				assert(epoch1.epoch != epoch2.epoch, "All epoch tile maps must be in different epochs")
 	
+	for aepoch in available_epochs:
+		aepoch.signal_destroy_rock.connect(on_destroy_rock)
+		aepoch.signal_remove_water.connect(on_remove_water)
+		
+func on_destroy_rock(epoch: Globals.Epoch, tile_position: Vector2):
+	for child in get_children():
+		if child is TileMap:
+			child.on_destroy_rock(epoch, tile_position)
+
+
+func on_remove_water(epoch: Globals.Epoch, tile_position: Vector2):
+	for child in get_children():
+		if child is TileMap:
+			child.on_remove_water(epoch, tile_position)
+
 
 func fade_out(index: int) -> void:
 	var node = available_epochs[index]
@@ -32,8 +47,8 @@ func blend_to_next() -> void:
 	current_epoch += 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
 	fade_in(current_epoch)
-	AudioManager.set_primary_player(current_epoch)
-	epoch_changed.emit(current_epoch)
+	AudioManager.set_primary_player(available_epochs[current_epoch].epoch)
+	epoch_changed.emit(available_epochs[current_epoch].epoch)
 
 
 func blend_to_previous() -> void:
@@ -41,19 +56,32 @@ func blend_to_previous() -> void:
 	current_epoch -= 1
 	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
 	fade_in(current_epoch)
-	AudioManager.set_primary_player(current_epoch)
-	epoch_changed.emit(current_epoch)
-	
-	
+	AudioManager.set_primary_player(available_epochs[current_epoch].epoch)
+	epoch_changed.emit(available_epochs[current_epoch].epoch)
+
+
 func get_current_epoch_map() -> TileMap:
 	return available_epochs[current_epoch]
-	
-	
+
+
 func get_epoch_map_from_epoch_enum(epoch: Globals.Epoch):
 	for epoch_tile_map in available_epochs:
 		if epoch_tile_map.epoch == epoch:
 			return epoch_tile_map
-	
-	
-func get_current_epoch():
+
+
+func set_current_epoch_from_epoch_enum(epoch: Globals.Epoch):
+	for i in range(len(available_epochs)):
+		var epoch_tile_map = available_epochs[i]
+		if epoch_tile_map.epoch == epoch:
+			current_epoch = i
+			return
+	assert(false,"starting_epoch does not exist in world!")
+
+
+func get_current_epoch()->int:
 	return current_epoch
+
+
+func get_current_epoch_enum()->Globals.Epoch:
+	return available_epochs[current_epoch].epoch
