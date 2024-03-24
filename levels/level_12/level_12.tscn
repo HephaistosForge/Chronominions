@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cyttkkrgbcpf6"]
+[gd_scene load_steps=13 format=3 uid="uid://cyttkkrgbcpf6"]
 
 [ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_oamj7"]
 [ext_resource type="Script" path="res://game_objects/items/starting_item_list.gd" id="2_klwoy"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://brm87ali1qau2" path="res://game_objects/teleporter/teleporterA.tscn" id="3_u7r12"]
 [ext_resource type="PackedScene" uid="uid://cfiv0ufmapcy1" path="res://game_objects/lemming_spawner/lemming_spawner.tscn" id="4_rjjc5"]
 [ext_resource type="PackedScene" uid="uid://bnmtihuiugbgs" path="res://game_objects/lemming_despawner/lemming_despawner.tscn" id="5_xppqw"]
+[ext_resource type="Texture2D" uid="uid://ckq0eagsblw2t" path="res://ui_scenes/ingame/item_selection/item/9.PNG" id="9_44fs8"]
 
 [sub_resource type="Resource" id="Resource_x5bey"]
 script = ExtResource("2_klwoy")
@@ -97,5 +98,14 @@ init_direction = 3
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_xppqw")]
 position = Vector2(95.5, -11.25)
+
+[node name="MenuButton2" type="TextureButton" parent="World/CanvasLayer/MarginContainer" index="1"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture_normal = ExtResource("9_44fs8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="World/CanvasLayer/MarginContainer/MenuButton2" to="World" method="_on_menu_button_pressed"]
 
 [editable path="World"]
