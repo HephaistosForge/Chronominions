@@ -64,8 +64,8 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on_cheat_button_pressed() -> void:
-	for x in 9:
-		for y in 2:
+	for x in 10:
+		for y in 3:
 			add_pickup(x, y)
 
 
