@@ -3,6 +3,7 @@ extends Control
 const CREDITS_PREFAB = preload("res://ui_scenes/main_menu/credits/Credits.tscn")
 const OPTIONS_PREFAB = preload("res://ui_scenes/main_menu/options/options.tscn")
 const HOW_TO_PLAY_PREFAB = preload("res://ui_scenes/main_menu/how_to_play/how_to_play.tscn")
+const LEVEL_SELECTION_PREFAB = preload("res://ui_scenes/main_menu/level_selection/level_selection.tscn")
 
 const MAIN_SCENE_PATH: String = "res://levels/level_6/level_6.tscn"
 
@@ -11,7 +12,8 @@ enum display_types {
 	CREDITS,
 	MULTIPLAYER,
 	MULTIPLAYER_LOBBY,
-	HOW_TO_PLAY
+	HOW_TO_PLAY,
+	LEVEL_SELECTION
 }
 
 var max_parallax = 20000
@@ -42,7 +44,13 @@ func get_random_target():
 	
 func _on_play_pressed() -> void:
 	_on_button_click()
-	get_tree().change_scene_to_file(MAIN_SCENE_PATH)
+	#get_tree().change_scene_to_file(MAIN_SCENE_PATH)
+	if currently_displayed != null:
+		currently_displayed.queue_free()
+	var level_selection = LEVEL_SELECTION_PREFAB.instantiate()
+	$MarginContainer/VBoxContainer.add_child(level_selection)
+	currently_displayed = level_selection
+	currently_displayed_type = display_types.LEVEL_SELECTION
 
 
 func _on_options_pressed() -> void:
