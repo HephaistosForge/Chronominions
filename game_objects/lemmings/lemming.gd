@@ -3,6 +3,7 @@ class_name Lemming extends CharacterBody2D
 @onready var world: Node2D
 @onready var time_gates: Array
 @export var own_epoch: Globals.Epoch
+const speed = 50
 
 var direction: Vector2 = Globals.NE:
 	set(new_direction):
@@ -28,7 +29,8 @@ func _ready():
 
 
 func _physics_process(_delta):
-	move_and_collide(direction*0.5)
+
+	move_and_collide(direction * speed * _delta)
 	var lemming_epoch_map = world.epoch_map.get_epoch_map_from_epoch_enum(own_epoch)
 	if not lemming_epoch_map.is_on_tile(self):
 		self.die()

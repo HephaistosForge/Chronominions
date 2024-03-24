@@ -3,7 +3,7 @@
 extends Area2D
 
 # The item that is granted to the player when picked up.
-@export var item : Item
+@export var item_type : Globals.ItemType
 
 # The time (and accordingly the map) at which this pickup exists.
 var epoch : Globals.Epoch
@@ -18,7 +18,5 @@ func _on_body_enter(body: Node2D):
 		print("lemming detected!", body.own_epoch, epoch)
 		if body.own_epoch == epoch:
 			self.queue_free()
-			#player.add_item(item)
-			push_warning("Pickup action not yet implemented.")
-
-
+			var world = get_tree().get_first_node_in_group("world")
+			world.add_pickup(item_type, epoch)

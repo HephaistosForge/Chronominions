@@ -164,7 +164,7 @@ collision_mask = 0
 script = ExtResource("1_db08k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(1, -28)
 scale = Vector2(5, 5)
 texture = ExtResource("2_eackk")
 region_enabled = true

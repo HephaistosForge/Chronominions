@@ -17,6 +17,6 @@ func _init(
 		self.item_type = _item_type
 
 
-func execute_item_action(epoch_map: TileMap) -> bool:
+func execute_item_action(_epoch_map: TileMap) -> bool:
 	push_warning("not implemented")
 	return false

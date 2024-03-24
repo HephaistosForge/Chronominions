@@ -4,13 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://dr0v8wf5p7bec" path="res://game_objects/lemming_spawner/spawner.png" id="2_nf8ht"]
 
 [node name="LemmingSpawner" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_k8wrn")
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -6)
+z_index = 1
+position = Vector2(0, -9)
 texture = ExtResource("2_nf8ht")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
