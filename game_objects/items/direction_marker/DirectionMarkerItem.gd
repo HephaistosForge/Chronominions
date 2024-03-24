@@ -17,6 +17,7 @@ func _init(_direction) -> void:
 	var item_name_string = "Signpost to " + _direction_to_string(direction)
 	var item_type_from_dir = get_item_type_from_direction(direction)
 	super._init(item_name_string, sprite, sprite, item_type_from_dir)
+	rotation = 90
 
 
 func get_item_type_from_direction(_direction) -> Globals.ItemType:
