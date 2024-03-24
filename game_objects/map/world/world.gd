@@ -4,6 +4,15 @@ const WIN_POPUP_PREFAB = preload("res://ui_scenes/ingame/win_popup/win_popup.tsc
 const INGAME_MENU_PREFAB = preload("res://ui_scenes/ingame/win_popup/ingame_menu_popup/ingame_menu_popup.tscn")
 
 
+@onready var button_left = $CanvasLayer/MarginContainer2/TextureButton
+@onready var button_right = $CanvasLayer/MarginContainer3/TextureButton2
+@onready var past_label = $CanvasLayer/VBoxContainer/MarginContainer/Label
+@onready var present_label = $CanvasLayer/VBoxContainer/MarginContainer/Label2
+@onready var future_label = $CanvasLayer/VBoxContainer/MarginContainer/Label3
+
+
+
+
 @onready var epoch_map = $EpochMap
 @onready var item_selections = $CanvasLayer/ItemSelections
 @onready var EPOCH_TO_BACKGROUND_IMAGE = {
@@ -39,6 +48,7 @@ func _ready():
 	var finish = get_tree().get_first_node_in_group("finish")
 	if finish:
 		finish.lemming_despawn.connect(_on_lemming_despawn)
+	init_epoch_slider()
 		
 		
 func _unhandled_input(event):
@@ -46,6 +56,7 @@ func _unhandled_input(event):
 		Engine.time_scale = 5.0
 	else:
 		Engine.time_scale = 1.0
+
 
 func _on_menu_button_pressed() -> void:
 	var popup = INGAME_MENU_PREFAB.instantiate()
@@ -63,21 +74,55 @@ func _on_epoch_map_epoch_changed(new_epoch):
 		var background = EPOCH_TO_BACKGROUND_IMAGE[epoch]
 		background.visible = false
 	EPOCH_TO_BACKGROUND_IMAGE[new_epoch].visible = true
+	set_available_epoch_swap_buttons(new_epoch)
+
+
+func init_epoch_slider():
+	var available_epochs = epoch_map.get_available_epoch_enums()
+	past_label.modulate = Color.WHITE if Globals.Epoch.PAST in available_epochs else Color.DIM_GRAY
+	present_label.modulate = Color.WHITE if Globals.Epoch.PRESENT in available_epochs else Color.DIM_GRAY
+	future_label.modulate = Color.WHITE if Globals.Epoch.FUTURE in available_epochs else Color.DIM_GRAY
+
+func set_available_epoch_swap_buttons(new_epoch):
+	var available_epochs = epoch_map.get_available_epoch_enums()
+	button_left.visible = false
+	button_right.visible = false
+	
+	match new_epoch:
+		Globals.Epoch.PAST:
+			if Globals.Epoch.PRESENT in available_epochs:
+				button_right.visible = true
+				
+		Globals.Epoch.PRESENT:
+			if Globals.Epoch.PAST in available_epochs:
+				button_left.visible = true
+			if Globals.Epoch.FUTURE in available_epochs:
+				button_right.visible = true
+		Globals.Epoch.FUTURE:
+			if Globals.Epoch.PRESENT in available_epochs:
+				button_left.visible = true
+
+	
+
 
 func add_pickup(type: Globals.ItemType, epoch) -> void:
 	item_selections._add_item_to_epoch_list(type, epoch)
 
+
 func _on_spawning_finished():
 	spawning_finshed = true
 	check_for_win()
+
 	
 func _on_lemming_despawn():
 	evacuated_lemmings += 1
 	check_for_win()
 	
+	
 func _on_lemming_death():
 	dead_lemmings += 1
 	check_for_win()
+
 
 func check_for_win():
 	if not spawning_finshed:
@@ -94,6 +139,7 @@ func win():
 	var popup = WIN_POPUP_PREFAB.instantiate()
 	popup.configure_popup(true, evacuated_lemmings, max_lemmings)
 	canvas_layer.add_child(popup)
+
 
 func lose():
 	var popup = WIN_POPUP_PREFAB.instantiate()

@@ -80,6 +80,7 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 
 [node name="MenuButton" type="TextureButton" parent="CanvasLayer/MarginContainer"]
+self_modulate = Color(0.14902, 0.560784, 1, 1)
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 texture_normal = ExtResource("6_qh0nf")
@@ -95,12 +96,14 @@ texture = ExtResource("7_tkw5u")
 expand_mode = 1
 
 [node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer/MenuButton"]
+modulate = Color(1, 0, 0.305882, 1)
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("8_xgawv")
 expand_mode = 1
+stretch_mode = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 4

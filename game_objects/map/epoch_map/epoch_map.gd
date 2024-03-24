@@ -93,6 +93,13 @@ func set_current_epoch_from_epoch_enum(epoch: Globals.Epoch):
 	assert(false, "starting_epoch does not exist in world!")
 
 
+func get_available_epoch_enums():
+	var epoch_array = []
+	for _e in available_epochs:
+		epoch_array.append(_e.epoch)
+	return epoch_array
+
+
 func get_current_epoch()->int:
 	return current_epoch
 
