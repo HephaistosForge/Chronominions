@@ -49,6 +49,7 @@ portal_future = 0
 [node name="Level10" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_8vugm")]
+starting_epoch = 2
 past_items = SubResource("Resource_0du8u")
 present_items = SubResource("Resource_hta0e")
 future_items = SubResource("Resource_7n67k")
@@ -81,8 +82,5 @@ init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_1jrci")]
 position = Vector2(112.375, -19.5)
-
-[node name="BombPickup" parent="." instance=ExtResource("4_n8428")]
-position = Vector2(-18, -195)
 
 [editable path="World"]
