@@ -4,9 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://cignsk8ayypmf" path="res://game_objects/pickups/bomb.png" id="2_xdvjo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jha1f"]
-radius = 2.0
+radius = 0.760263
 
 [node name="BombPickup" type="Area2D"]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(6, 6)
 script = ExtResource("1_kjoq7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

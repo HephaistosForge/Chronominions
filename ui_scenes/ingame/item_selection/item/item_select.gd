@@ -21,6 +21,10 @@ func init_item(_item: Item, _count: int) -> void:
 	set_item_title(item.item_name)
 	set_count_label(_count)
 
+func set_count(value):
+	count = value
+	set_count_label(count)
+
 
 func set_item_title(title: String) -> void:
 	item_name_label.text = title
@@ -28,7 +32,7 @@ func set_item_title(title: String) -> void:
 
 func set_count_label(_count: int) -> void:
 	count_label.text = str(_count)
-
+	modulate = Color.WHITE if count > 0 else Color.DARK_GRAY
 
 func set_item_texture(texture: Texture2D) -> void:
 	texture_rect.texture = texture

@@ -29,7 +29,7 @@ func init_item_selection_items(item, count):
 
 
 func increase_item_count(item_type, value):
-	item_selection_refs[item_type].count += value 
+	item_selection_refs[item_type].set_count(item_selection_refs[item_type].count + value)
 
 
 func _on_item_selected(node: Node):
