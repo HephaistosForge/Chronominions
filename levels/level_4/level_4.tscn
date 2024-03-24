@@ -59,6 +59,7 @@ epoch = 1
 
 [node name="LemmingSpawner" parent="World/EpochMap/Present" instance=ExtResource("4_0pab7")]
 position = Vector2(-65, 33)
+init_direction = 1
 
 [node name="Future" parent="World/EpochMap" index="1" instance=ExtResource("2_kref2")]
 visible = false

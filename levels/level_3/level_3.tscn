@@ -49,6 +49,7 @@ portal_future = 0
 [node name="Level3" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_vo0e8")]
+starting_epoch = 1
 past_items = SubResource("Resource_7fpa2")
 present_items = SubResource("Resource_0buju")
 future_items = SubResource("Resource_lkwor")
@@ -62,6 +63,7 @@ position = Vector2(-15.75, -24.125)
 
 [node name="LemmingSpawner" parent="World/EpochMap/Present" instance=ExtResource("5_eqbxo")]
 position = Vector2(-129.375, 1)
+init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Present" instance=ExtResource("6_81wds")]
 position = Vector2(128.375, -11.25)
