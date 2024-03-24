@@ -25,7 +25,7 @@ func _ready():
 	else:
 		assert(false, "DirectionMarker must be child of EpochTileMap!")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not Engine.is_editor_hint():
 		for body in get_overlapping_bodies():
 			if body is Lemming:

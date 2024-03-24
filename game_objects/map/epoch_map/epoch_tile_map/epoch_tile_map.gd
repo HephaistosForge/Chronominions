@@ -32,7 +32,7 @@ func _input(event: InputEvent) -> void:
 		if not selector:
 			selector = SELECTOR_PREFAB.instantiate()
 			get_tree().root.add_child(selector)
-		selector.global_position = get_centered_tile_position_from_world_position(get_global_mouse_position())
+		selector.global_position = get_centered_tile_position_from_world_position(mouse_pos)
 	#if event is InputEventMouseMotion:
 	#	if tile_data != null:
 	#		tile_data.material = HIGHLIGHT_MATERIAL

@@ -29,14 +29,14 @@ func get_current_epoch():
 	epoch_map.get_current_epoch()
 	
 
-func init_item_lists(past, present, future, starting_epoch, epoch_map):
+func init_item_lists(past, present, future, starting_epoch, _epoch_map):
 	past_item_list = past
 	present_item_list = present
 	future_item_list = future
 	past_item_selection = generate_item_selection(past_item_list)
 	present_item_selection = generate_item_selection(present_item_list)
 	future_item_selection = generate_item_selection(future_item_list)
-	epoch_map.epoch_changed.connect(_on_epoch_changed)
+	_epoch_map.epoch_changed.connect(_on_epoch_changed)
 	set_active_item_list(starting_epoch)
 
 
