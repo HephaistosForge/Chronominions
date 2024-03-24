@@ -23,4 +23,4 @@ func _on_menu_button_pressed() -> void:
 
 
 func add_pickup(type: Globals.ItemType, epoch) -> void:
-	item_selections.add_item(type, epoch)
+	item_selections._add_item_to_epoch_list(type, epoch)

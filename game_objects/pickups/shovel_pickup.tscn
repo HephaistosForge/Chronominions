@@ -4,10 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://b2ddt7nleodbu" path="res://game_objects/pickups/shovel.png" id="2_t3dio"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o56gl"]
-radius = 2.0
+radius = 1.0
 
 [node name="ShovelPickup" type="Area2D"]
+z_index = 1
+y_sort_enabled = true
+scale = Vector2(4, 4)
 script = ExtResource("1_rxdvg")
+item_type = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0784314, 0.231373, 0, 1)
