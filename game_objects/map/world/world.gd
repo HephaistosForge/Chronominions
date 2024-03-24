@@ -37,6 +37,7 @@ var spawning_finshed = false
 
 
 func _ready():
+	Engine.time_scale = 1.0
 	item_selections.init_item_lists(past_items, present_items, future_items, starting_epoch, epoch_map)
 	epoch_map.set_current_epoch_from_epoch_enum(starting_epoch)
 	_on_epoch_map_epoch_changed(starting_epoch)
@@ -51,11 +52,11 @@ func _ready():
 	init_epoch_slider()
 		
 		
-func _unhandled_input(event):
-	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
-		Engine.time_scale = 5.0
-	else:
-		Engine.time_scale = 1.0
+#func _unhandled_input(event):
+#	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
+#		Engine.time_scale = 5.0
+#	else:
+#		Engine.time_scale = 1.0
 
 
 func _on_menu_button_pressed() -> void:
@@ -64,8 +65,8 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on_cheat_button_pressed() -> void:
-	for x in 9:
-		for y in 2:
+	for x in 10:
+		for y in 3:
 			add_pickup(x, y)
 
 
