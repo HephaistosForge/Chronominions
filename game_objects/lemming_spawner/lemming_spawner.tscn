@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dr0v8wf5p7bec" path="res://game_objects/lemming_spawner/spawner.png" id="2_nf8ht"]
 
 [node name="LemmingSpawner" type="Node2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_k8wrn")
 
 [node name="Timer" type="Timer" parent="."]

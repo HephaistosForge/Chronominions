@@ -3,15 +3,17 @@
 [ext_resource type="Script" path="res://game_objects/lemming_despawner/lemming_despawner.gd" id="1_6aa8y"]
 [ext_resource type="Texture2D" uid="uid://bsxc6p1u08lpb" path="res://game_objects/lemming_despawner/despawner.png" id="2_3px8v"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lju7d"]
-size = Vector2(14, 18)
+[sub_resource type="CircleShape2D" id="CircleShape2D_xtp5a"]
+radius = 5.0
 
 [node name="LemmingDespawner" type="Area2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_6aa8y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 4)
-shape = SubResource("RectangleShape2D_lju7d")
+position = Vector2(0, 11)
+shape = SubResource("CircleShape2D_xtp5a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -2)

@@ -14,7 +14,6 @@ script = ExtResource("1_rxdvg")
 item_type = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.0784314, 0.231373, 0, 1)
 scale = Vector2(0.11, 0.11)
 texture = ExtResource("2_t3dio")
 
