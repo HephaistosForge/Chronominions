@@ -70,7 +70,6 @@ layer_0/tile_data = PackedInt32Array(-5, 65539, 6, -65540, 65539, 6, -131076, 65
 epoch = 2
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_8b7k8")]
-z_index = 1
 position = Vector2(128.25, -11.5)
 
 [editable path="World"]
