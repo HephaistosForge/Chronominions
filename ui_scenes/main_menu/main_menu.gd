@@ -43,7 +43,6 @@ func get_random_target():
 	
 	
 func _on_play_pressed() -> void:
-	_on_button_click()
 	#get_tree().change_scene_to_file(MAIN_SCENE_PATH)
 	if currently_displayed != null:
 		currently_displayed.queue_free()
@@ -60,7 +59,6 @@ func _on_options_pressed() -> void:
 	$MarginContainer/VBoxContainer.add_child(options)
 	currently_displayed = options
 	currently_displayed_type = display_types.OPTIONS
-	_on_button_click()
 
 
 func _on_credits_pressed() -> void:
@@ -70,11 +68,9 @@ func _on_credits_pressed() -> void:
 	$MarginContainer/VBoxContainer.add_child(credits)
 	currently_displayed = credits
 	currently_displayed_type = display_types.CREDITS
-	_on_button_click()
 
 
 func _on_exit_pressed() -> void:
-	_on_button_click()
 	get_tree().quit()
 
 

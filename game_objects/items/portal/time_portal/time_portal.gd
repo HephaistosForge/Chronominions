@@ -74,6 +74,7 @@ func get_prefab_for_epoch(_epoch):
 func execute_item_action(curr_epoch_map: TileMap) -> bool:
 	if not _is_valid_target(curr_epoch_map):
 		return false
+	AudioManager.play_place_portal()
 	return true
 	
 

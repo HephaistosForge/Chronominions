@@ -11,6 +11,7 @@ func _init() -> void:
 func execute_item_action(curr_epoch_map: TileMap) -> bool:
 	if not _is_valid_target(curr_epoch_map):
 		return false
+	AudioManager.play_place_bomb()
 	return true
 	
 

@@ -19,11 +19,19 @@ const sound_example: Array = [
 ]
 
 const button_click: Array = [
-	
+	preload("res://audio/sound_effects/ui_click.wav")
 ]
 
 const button_hover: Array = [
 	
+]
+
+const place_bomb: Array = [
+	preload("res://audio/sound_effects/sfx_boom.mp3")
+]
+
+const place_portal: Array = [
+	preload("res://audio/sound_effects/sfx_bump.wav")
 ]
 
 var music_volume: float = 50
@@ -65,6 +73,11 @@ func play_button_click() -> void:
 		return
 	_create_sound_player(button_click.pick_random(), null, false, 0.5)
 
+func play_place_bomb() -> void:
+	_create_sound_player(place_bomb.pick_random(), null, false, 0.5)
+
+func play_place_portal() -> void:
+	_create_sound_player(place_portal.pick_random(), null, false, 0.5)
 
 # HELPER
 func set_sound_volume(percent:float) -> void:
