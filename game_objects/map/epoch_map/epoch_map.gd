@@ -53,22 +53,21 @@ func fade_in(index: int) -> void:
 
 
 func blend_to_next() -> void:
-	fade_out(current_epoch)
-	current_epoch += 1
-	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
-	fade_in(current_epoch)
-	AudioManager.set_primary_player(available_epochs[current_epoch].epoch)
-	epoch_changed.emit(available_epochs[current_epoch].epoch)
+	blend_to_new_index(clamp(current_epoch+1, 0, len(available_epochs)-1))
 
 
 func blend_to_previous() -> void:
-	fade_out(current_epoch)
-	current_epoch -= 1
-	current_epoch = clamp(current_epoch, 0, len(available_epochs)-1)
-	fade_in(current_epoch)
-	AudioManager.set_primary_player(available_epochs[current_epoch].epoch)
-	epoch_changed.emit(available_epochs[current_epoch].epoch)
+	blend_to_new_index(clamp(current_epoch-1, 0, len(available_epochs)-1))
 
+
+func blend_to_new_index(new_epoch_index):
+	if current_epoch != new_epoch_index:
+		fade_out(current_epoch)
+		current_epoch = clamp(new_epoch_index, 0, len(available_epochs)-1)
+		fade_in(current_epoch)
+		AudioManager.set_primary_player(available_epochs[current_epoch].epoch)
+		epoch_changed.emit(available_epochs[current_epoch].epoch)
+		
 
 func get_current_epoch_map() -> TileMap:
 	return available_epochs[current_epoch]
@@ -84,9 +83,11 @@ func set_current_epoch_from_epoch_enum(epoch: Globals.Epoch):
 	for i in range(len(available_epochs)):
 		var epoch_tile_map = available_epochs[i]
 		if epoch_tile_map.epoch == epoch:
-			current_epoch = i
+			fade_in(i)
+			blend_to_new_index(i)
 			return
-	assert(false,"starting_epoch does not exist in world!")
+			
+	assert(false, "starting_epoch does not exist in world!")
 
 
 func get_current_epoch()->int:

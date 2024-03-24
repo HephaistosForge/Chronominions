@@ -1,76 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://dnrtyqbtemwtl"]
+[gd_scene load_steps=2 format=3 uid="uid://dnrtyqbtemwtl"]
 
 [ext_resource type="PackedScene" uid="uid://iup344dbdef3" path="res://game_objects/map/world/world.tscn" id="1_vewa4"]
-[ext_resource type="PackedScene" uid="uid://bnmtihuiugbgs" path="res://game_objects/lemming_despawner/lemming_despawner.tscn" id="2_5y2ms"]
-[ext_resource type="Shader" path="res://visual_effects/highlight_shader.gdshader" id="2_bw786"]
-[ext_resource type="PackedScene" uid="uid://cfiv0ufmapcy1" path="res://game_objects/lemming_spawner/lemming_spawner.tscn" id="3_n47ma"]
-[ext_resource type="PackedScene" path="res://game_objects/pickups/bomb_pickup.tscn" id="4_hq7w2"]
-[ext_resource type="PackedScene" uid="uid://bs4myl8m7nn2p" path="res://game_objects/direction_marker/direction_marker.tscn" id="5_qvf6e"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_fy55s"]
-resource_local_to_scene = true
-shader = ExtResource("2_bw786")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 0.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = false
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_thtvv"]
-resource_local_to_scene = true
-shader = ExtResource("2_bw786")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/width = 0.0
-shader_parameter/pattern = 0
-shader_parameter/inside = false
-shader_parameter/add_margins = false
 
 [node name="PlaygroundBrutenis" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_vewa4")]
 position = Vector2(1641, 653.5)
-
-[node name="LemmingDespawner" parent="World/EpochMap/EpochTileMap" index="0" instance=ExtResource("2_5y2ms")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-7.375, -38.0625)
-monitoring = false
-epoch = -1
-
-[node name="LemmingSpawner" parent="World/EpochMap/EpochTileMap" index="1" instance=ExtResource("3_n47ma")]
-scale = Vector2(0.125, 0.125)
-lemming_population = 10
-
-[node name="BombPickup" parent="World/EpochMap/EpochTileMap" index="2" instance=ExtResource("4_hq7w2")]
-z_index = 1
-position = Vector2(30.875, -17.1875)
-
-[node name="DirectionMarker" parent="World/EpochMap/EpochTileMap" index="3" instance=ExtResource("5_qvf6e")]
-position = Vector2(16.875, -8.3125)
-scale = Vector2(0.125, 0.125)
-
-[node name="DirectionMarker2" parent="World/EpochMap/EpochTileMap" index="4" instance=ExtResource("5_qvf6e")]
-position = Vector2(-16.625, 8.6875)
-scale = Vector2(0.125, 0.125)
-direction = 1
-
-[node name="DirectionMarker3" parent="World/EpochMap/EpochTileMap" index="5" instance=ExtResource("5_qvf6e")]
-position = Vector2(-48.5, -8.9375)
-scale = Vector2(0.125, 0.125)
-direction = 3
-
-[node name="DirectionMarker4" parent="World/EpochMap/EpochTileMap" index="6" instance=ExtResource("5_qvf6e")]
-position = Vector2(-16, -25.3125)
-scale = Vector2(0.125, 0.125)
-direction = 2
-
-[node name="EpochTileMap2" parent="World/EpochMap" index="1"]
-material = SubResource("ShaderMaterial_fy55s")
-epoch = 1
-
-[node name="EpochTileMap3" parent="World/EpochMap" index="2"]
-material = SubResource("ShaderMaterial_thtvv")
-epoch = 2
 
 [editable path="World"]
 [editable path="World/EpochMap"]

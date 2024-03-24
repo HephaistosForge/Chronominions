@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://game_objects/map/epoch_map/epoch_map.gd" id="1_nge7n"]
 
 [node name="EpochMap" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_nge7n")
