@@ -16,7 +16,10 @@ func _on_next_level_pressed():
 	var next_level = "level_" + str(int(current_level.lstrip("Level")) + 1)
 	next_level = next_level + "/" + next_level + ".tscn"
 	var next_level_prefab = load("res://levels/" + next_level)
-	get_tree().change_scene_to_packed(next_level_prefab)
+	if next_level_prefab != null:
+		get_tree().change_scene_to_packed(next_level_prefab)
+	else:
+		_on_main_menu_pressed()
 
 
 func _on_retry_level_pressed():

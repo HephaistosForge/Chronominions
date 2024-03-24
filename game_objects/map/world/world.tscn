@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=20 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
@@ -14,6 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://dpaa7s5b30hu8" path="res://ui_scenes/slider_textures/slider_bg.png" id="10_vdrwh"]
 [ext_resource type="Texture2D" uid="uid://bkjirk2lllmso" path="res://ui_scenes/slider_textures/slider_handle.png" id="11_jayef"]
 [ext_resource type="Script" path="res://game_objects/map/world/time_slider_handle.gd" id="12_8607s"]
+[ext_resource type="Texture2D" uid="uid://b14ciya1beq76" path="res://ui_scenes/button_textures/speed1.png" id="15_7qwd3"]
+[ext_resource type="Texture2D" uid="uid://ydg3vsy27dmi" path="res://ui_scenes/button_textures/speed2.png" id="16_ldypi"]
+[ext_resource type="Script" path="res://game_objects/map/world/SpeedUpButton.gd" id="16_uwrdd"]
+[ext_resource type="Texture2D" uid="uid://cf0yg5eepr4q" path="res://ui_scenes/button_textures/speed3.png" id="17_l2adv"]
+[ext_resource type="Texture2D" uid="uid://bxj63p1mq4400" path="res://ui_scenes/button_textures/speed4.png" id="19_ohlni"]
 
 [node name="World" type="Node2D" groups=["world"]]
 script = ExtResource("1_a2ek4")
@@ -44,11 +49,11 @@ position = Vector2(0, -150)
 layer = 128
 
 [node name="CheatButton" type="TextureButton" parent="CanvasLayer"]
-modulate = Color(1, 0.866667, 0.847059, 0.0196078)
-offset_left = 1464.0
-offset_top = 75.0
-offset_right = 1484.0
-offset_bottom = 95.0
+modulate = Color(1, 0.866667, 0.847059, 0.0156863)
+offset_left = 1658.0
+offset_top = 657.0
+offset_right = 1678.0
+offset_bottom = 677.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("5_w1og2")
@@ -190,6 +195,37 @@ position = Vector2(486, 53)
 scale = Vector2(0.0787037, 0.231482)
 texture = ExtResource("11_jayef")
 script = ExtResource("12_8607s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 1395.0
+offset_top = 56.0
+offset_right = 3107.0
+offset_bottom = 367.0
+scale = Vector2(0.2, 0.2)
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_7qwd3")
+script = ExtResource("16_uwrdd")
+speed_up = 0.5
+
+[node name="TextureButton2" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("16_ldypi")
+script = ExtResource("16_uwrdd")
+
+[node name="TextureButton3" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("17_l2adv")
+script = ExtResource("16_uwrdd")
+speed_up = 4.0
+
+[node name="TextureButton4" type="TextureButton" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("19_ohlni")
+script = ExtResource("16_uwrdd")
+speed_up = 10.0
 
 [connection signal="epoch_changed" from="EpochMap" to="." method="_on_epoch_map_epoch_changed"]
 [connection signal="epoch_changed" from="EpochMap" to="CanvasLayer/VBoxContainer/SliderHandle" method="_on_epoch_map_epoch_changed"]
