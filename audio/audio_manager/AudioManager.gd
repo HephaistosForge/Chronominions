@@ -78,7 +78,6 @@ func set_music_volume(percent:float) -> void:
 func set_player_volume_db(percent: float, player: AudioStreamPlayer):
 	#player.volume_db = linear_to_db((float(music_volume)/100.0))
 	player.volume_db = log(percent/100.0+exp(-80))*10
-	print(percent, "is", player.volume_db)
 
 
 func set_primary_player(epoch: Globals.Epoch):
