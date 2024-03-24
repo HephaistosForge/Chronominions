@@ -5,6 +5,8 @@ class_name Lemming extends CharacterBody2D
 @export var own_epoch: Globals.Epoch
 const speed = 50
 
+signal death
+
 var direction: Vector2 = Globals.NE:
 	set(new_direction):
 		direction = new_direction
@@ -27,7 +29,6 @@ func _ready():
 	set_visibility()
 
 
-
 func _physics_process(_delta):
 
 	move_and_collide(direction * speed * _delta)
@@ -47,16 +48,13 @@ func _physics_process(_delta):
 		direction = new_direction
 
 
-
-
 func bounce():
 	direction = -direction
 
 func die():
+	death.emit()
 	# Animation player queue_frees lemming
 	$AnimationPlayer.play("die")
-
-
 
 
 func set_visibility(_epoch=null):

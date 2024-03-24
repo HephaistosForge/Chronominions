@@ -58,7 +58,7 @@ layer_0/tile_data = PackedInt32Array(-393218, 655363, 5, -327681, 655363, 5, -26
 epoch = 1
 
 [node name="LemmingSpawner" parent="World/EpochMap/Present" instance=ExtResource("4_0pab7")]
-position = Vector2(-65.75, 29.75)
+position = Vector2(-65, 33)
 
 [node name="Future" parent="World/EpochMap" index="1" instance=ExtResource("2_kref2")]
 visible = false
@@ -66,6 +66,6 @@ layer_0/tile_data = PackedInt32Array(-196611, 65539, 8, -131075, 393219, 8, -655
 epoch = 2
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_irdpo")]
-position = Vector2(66.75, -44.5)
+position = Vector2(64.375, -43.375)
 
 [editable path="World"]

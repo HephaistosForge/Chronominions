@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://game_objects/lemming_spawner/lemming_spawner.gd" id="1_k8wrn"]
 [ext_resource type="Texture2D" uid="uid://dr0v8wf5p7bec" path="res://game_objects/lemming_spawner/spawner.png" id="2_nf8ht"]
 
-[node name="LemmingSpawner" type="Node2D"]
+[node name="LemmingSpawner" type="Node2D" groups=["spawn"]]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_k8wrn")

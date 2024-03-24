@@ -156,7 +156,7 @@ _data = {
 "walk_sw": SubResource("Animation_bs6oh")
 }
 
-[node name="Lemming" type="CharacterBody2D"]
+[node name="Lemming" type="CharacterBody2D" groups=["lemming"]]
 z_index = 10
 z_as_relative = false
 y_sort_enabled = true
