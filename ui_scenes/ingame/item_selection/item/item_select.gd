@@ -32,7 +32,7 @@ func set_item_title(title: String) -> void:
 
 func set_count_label(_count: int) -> void:
 	count_label.text = str(_count)
-	modulate = Color.WHITE if count > 0 else Color.DARK_GRAY
+	modulate = Color.WHITE if count > 0 else Color.DIM_GRAY
 
 func set_item_texture(texture: Texture2D) -> void:
 	texture_rect.texture = texture
@@ -77,7 +77,7 @@ func _input(event: InputEvent) -> void:
 				set_count_label(self.count)
 				deselect_item()
 				if count <= 0:
-					modulate = Color.DARK_GRAY
+					modulate = Color.DIM_GRAY
 
 
 func on_item_selected(node: Node):
