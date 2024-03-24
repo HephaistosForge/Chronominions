@@ -12,6 +12,7 @@ line_spacing = 2.86
 font_size = 26
 
 [node name="WinPopup" type="PanelContainer"]
+z_index = 50
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
