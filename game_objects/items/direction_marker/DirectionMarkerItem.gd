@@ -1,6 +1,12 @@
 class_name DirectionMarker extends Item
 
-var sprite = preload("res://game_objects/items/direction_marker/Barbarian_icons_80_t.PNG")
+#var sprite = preload("res://game_objects/items/direction_marker/Barbarian_icons_80_t.PNG")
+var dir_to_sprite = {
+	Globals.Direction.NE: preload("res://game_objects/direction_marker/marker_ne_3.png"),
+	Globals.Direction.NW: preload("res://game_objects/direction_marker/marker_nw_3.png"),
+	Globals.Direction.SE: preload("res://game_objects/direction_marker/marker_se_3.png"),
+	Globals.Direction.SW: preload("res://game_objects/direction_marker/marker_sw_3.png"),
+}
 var direction: Globals.Direction
 
 const VALID_TERRAIN_TYPES = [
@@ -16,7 +22,8 @@ func _init(_direction) -> void:
 	self.direction = _direction
 	var item_name_string = "Signpost to " + _direction_to_string(direction)
 	var item_type_from_dir = get_item_type_from_direction(direction)
-	super._init(item_name_string, sprite, sprite, item_type_from_dir)
+	#super._init(item_name_string, sprite, sprite, item_type_from_dir)
+	super._init(item_name_string, dir_to_sprite[_direction], dir_to_sprite[_direction], item_type_from_dir)
 	rotation = 90
 
 
