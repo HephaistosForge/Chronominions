@@ -1,28 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://derk6ivycqo77"]
+[gd_scene load_steps=3 format=3 uid="uid://derk6ivycqo77"]
 
-[ext_resource type="Script" path="res://game_objects/time_gate/time_gate.gd" id="1_586u5"]
-[ext_resource type="Texture2D" uid="uid://06jg35doafyg" path="res://game_objects/time_gate/portal_past.png" id="2_xi47y"]
+[ext_resource type="PackedScene" uid="uid://cl1xmtoje4g5m" path="res://game_objects/time_gate/time_gate_abstract.tscn" id="1_qu52o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghwmn"]
-size = Vector2(6, 9.5)
+[sub_resource type="Curve" id="Curve_nnp4w"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="TimeGate" type="Node2D" groups=["time_gate"]]
 
-[node name="Node2D" type="Area2D" parent="."]
-script = ExtResource("1_586u5")
-epoch = 1
+[node name="Node2D2" parent="." instance=ExtResource("1_qu52o")]
+epoch = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
-position = Vector2(2, -5.75)
-shape = SubResource("RectangleShape2D_ghwmn")
+[node name="RoundLeft" parent="Node2D2" index="0"]
+color = Color(0.870588, 0.862745, 0.0666667, 1)
 
-[node name="Shadow" type="Sprite2D" parent="Node2D"]
-modulate = Color(0.247059, 0.247059, 0.247059, 0.517647)
-position = Vector2(-3, -3)
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_xi47y")
+[node name="RoundRight" parent="Node2D2" index="1"]
+color = Color(0.701961, 0.733333, 0.176471, 1)
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-position = Vector2(-3, -4)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("2_xi47y")
+[node name="ExpoLeft" parent="Node2D2" index="2"]
+color = Color(0.960784, 0.976471, 0.529412, 1)
+hue_variation_min = 0.0
+hue_variation_max = 0.0
+
+[node name="ExpoRight" parent="Node2D2" index="3"]
+color = Color(0.984314, 0.984314, 0.643137, 1)
+hue_variation_min = 0.0
+hue_variation_max = 0.0
+hue_variation_curve = SubResource("Curve_nnp4w")
+
+[node name="Sprite2D2" parent="Node2D2" index="5"]
+modulate = Color(0.341176, 0.309804, 0.141176, 0.85098)
+
+[node name="Sprite2D3" parent="Node2D2" index="6"]
+modulate = Color(0.878431, 0.878431, 0.0784314, 0.796078)
+
+[node name="CollisionShape2D" parent="Node2D2" index="7"]
+visible = false
+
+[editable path="Node2D2"]

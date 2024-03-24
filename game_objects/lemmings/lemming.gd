@@ -54,6 +54,10 @@ func bounce():
 func die():
 	death.emit()
 	# Animation player queue_frees lemming
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN)
+	tween.set_trans(Tween.TRANS_QUAD)
+	tween.tween_property(self, "position", position + Vector2(0, 100), 0.1)
 	$AnimationPlayer.play("die")
 
 

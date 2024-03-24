@@ -33,4 +33,7 @@ modulate = Color(0.364706, 0.0705882, 0.0117647, 0.721569)
 [node name="Sprite2D3" parent="Node2D2" index="6"]
 modulate = Color(0.968627, 0.203922, 0.392157, 0.784314)
 
+[node name="CollisionShape2D" parent="Node2D2" index="7"]
+visible = false
+
 [editable path="Node2D2"]
