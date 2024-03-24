@@ -14,7 +14,7 @@ var tutorial_items = [
 		"Bombs can be placed to destroy mountains, shovels to bridge water."
 	],
 	[
-		preload("res://icon.svg"), 
+		preload("res://ui_scenes/main_menu/how_to_play/screenshots/signposts.png"), 
 		"Signposts", 
 		"Signposts change the direction of crossing minions."
 	],
@@ -24,7 +24,14 @@ var tutorial_items = [
 		"Minions crossing items on the map will grant them to your inventory."
 	],
 	[
-		preload("res://icon.svg"), 
+		preload("res://ui_scenes/main_menu/how_to_play/screenshots/time.png"), 
+		"Time", 
+		"You can travel through time by clicking the buttons on the left and\
+		right arrows. The later levels require you to coordinate your minions\
+		across the past, present, and future."
+	],
+	[
+		preload("res://ui_scenes/main_menu/how_to_play/screenshots/portals.png"), 
 		"Portals", 
 		"Portals can teleport the minions throught time."
 	]
