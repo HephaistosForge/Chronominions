@@ -5,6 +5,14 @@ const PORTAL_PRESENT_PREFAB = preload("res://game_objects/time_gate/time_gate_pr
 const PORTAL_FUTURE_PREFAB = preload("res://game_objects/time_gate/time_gate_future.tscn")
 
 var sprite = preload("res://game_objects/items/portal/time_portal/b_04.png")
+var sprite_past = preload("res://game_objects/items/portal/time_portal/P1.PNG")
+var sprite_present = preload("res://game_objects/items/portal/time_portal/P3.PNG")
+var sprite_future = preload("res://game_objects/items/portal/time_portal/P2.PNG")
+
+var sprite_past_small = preload("res://game_objects/items/portal/time_portal/P1_small.png")
+var sprite_present_small = preload("res://game_objects/items/portal/time_portal/P3_small.png")
+var sprite_future_small = preload("res://game_objects/items/portal/time_portal/P2_small.png")
+
 
 var epoch
 
@@ -21,7 +29,15 @@ func _init(_epoch: Globals.Epoch) -> void:
 	self.epoch = _epoch
 	var item_name_string = "Portal to the " + _epoch_to_string(_epoch)
 	var item_type_from_epoch = get_item_type_from_epoch(_epoch)
-	super._init(item_name_string, sprite, sprite, item_type_from_epoch)
+	match _epoch:
+		Globals.Epoch.PAST:
+			super._init(item_name_string, sprite_past, sprite_past_small, item_type_from_epoch)
+		Globals.Epoch.PRESENT:
+			super._init(item_name_string, sprite_present, sprite_present_small, item_type_from_epoch)
+		Globals.Epoch.FUTURE:
+			super._init(item_name_string, sprite_future, sprite_future_small, item_type_from_epoch)
+			 
+	#super._init(item_name_string, sprite, sprite, item_type_from_epoch)
 
 
 func get_item_type_from_epoch(_epoch) -> Globals.ItemType:

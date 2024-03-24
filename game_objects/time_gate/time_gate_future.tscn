@@ -8,29 +8,36 @@
 portal_direction = 2
 epoch = 1
 
-[node name="RoundLeft" parent="Node2D2" index="1"]
+[node name="RoundLeft" parent="Node2D2" index="0"]
 color = Color(0.207843, 0.2, 0.898039, 1)
 hue_variation_min = 0.0
 hue_variation_max = 0.0
 hue_variation_curve = null
 
-[node name="RoundRight" parent="Node2D2" index="2"]
+[node name="RoundRight" parent="Node2D2" index="1"]
 color = Color(0.196078, 0.709804, 0.898039, 1)
 hue_variation_min = -0.1
 hue_variation_max = 0.1
 hue_variation_curve = null
 
-[node name="ExpoLeft" parent="Node2D2" index="3"]
+[node name="ExpoLeft" parent="Node2D2" index="2"]
 color = Color(0.286275, 0.92549, 0.984314, 1)
 hue_variation_min = 0.0
 hue_variation_max = 0.0
 
-[node name="ExpoRight" parent="Node2D2" index="4"]
+[node name="ExpoRight" parent="Node2D2" index="3"]
 color = Color(0.14902, 0.937255, 0.960784, 1)
 hue_variation_min = -0.1
 hue_variation_max = 0.1
 
+[node name="Sprite2D2" parent="Node2D2" index="5"]
+modulate = Color(0.00392157, 0.172549, 0.380392, 0.701961)
+rotation = 6.14207e-05
+
 [node name="Sprite2D3" parent="Node2D2" index="6"]
 modulate = Color(0.129412, 0.576471, 0.894118, 0.784314)
+
+[node name="CollisionShape2D" parent="Node2D2" index="7"]
+visible = false
 
 [editable path="Node2D2"]
