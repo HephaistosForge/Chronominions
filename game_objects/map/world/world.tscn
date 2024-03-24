@@ -1,11 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=15 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
 [ext_resource type="Texture2D" uid="uid://dy433uksrovrq" path="res://game_objects/map/world/future.png" id="2_3c4l1"]
+[ext_resource type="Texture2D" uid="uid://chn1jaj6wvrf6" path="res://game_objects/map/world/present.png" id="2_p0yoq"]
 [ext_resource type="Texture2D" uid="uid://y0vacm8vngyx" path="res://game_objects/map/world/past.png" id="3_ub8l8"]
 [ext_resource type="Texture2D" uid="uid://bcu78ul68ovsf" path="res://ui_scenes/button_textures/button_07_frame.png" id="4_wpw3v"]
 [ext_resource type="Script" path="res://game_objects/map/world/ItemSelections.gd" id="5_d12mu"]
+[ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="5_w1og2"]
 [ext_resource type="Texture2D" uid="uid://ckq0eagsblw2t" path="res://ui_scenes/ingame/item_selection/item/9.PNG" id="6_qh0nf"]
 [ext_resource type="Texture2D" uid="uid://cn1x7tc6lgwqa" path="res://ui_scenes/ingame/item_selection/item/map_01_01.png" id="7_tkw5u"]
 [ext_resource type="Texture2D" uid="uid://df8hsbe33fml0" path="res://ui_scenes/ingame/item_selection/item/map_01_02.png" id="8_xgawv"]
@@ -23,7 +25,7 @@ zoom = Vector2(0.7, 0.7)
 [node name="BackgroundPresent" type="Sprite2D" parent="Camera2D"]
 modulate = Color(0.4, 0.4, 0.4, 1)
 z_index = -100
-texture = ExtResource("2_3c4l1")
+texture = ExtResource("2_p0yoq")
 
 [node name="BackgroundPast" type="Sprite2D" parent="Camera2D"]
 modulate = Color(0.4, 0.4, 0.4, 1)
@@ -39,6 +41,19 @@ texture = ExtResource("2_3c4l1")
 position = Vector2(0, -150)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 128
+
+[node name="CheatButton" type="TextureButton" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1464.0
+offset_top = 75.0
+offset_right = 1484.0
+offset_bottom = 95.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_w1og2")
+ignore_texture_size = true
+stretch_mode = 0
 
 [node name="ItemSelections" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -174,6 +189,7 @@ script = ExtResource("12_8607s")
 
 [connection signal="epoch_changed" from="EpochMap" to="." method="_on_epoch_map_epoch_changed"]
 [connection signal="epoch_changed" from="EpochMap" to="CanvasLayer/VBoxContainer/SliderHandle" method="_on_epoch_map_epoch_changed"]
+[connection signal="pressed" from="CanvasLayer/CheatButton" to="." method="_on_cheat_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer2/TextureButton" to="EpochMap" method="blend_to_previous"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer3/TextureButton2" to="EpochMap" method="blend_to_next"]
