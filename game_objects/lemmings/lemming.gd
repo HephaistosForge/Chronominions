@@ -28,7 +28,7 @@ func _ready():
 
 
 func _physics_process(_delta):
-	move_and_collide(direction)
+	move_and_collide(direction*5)
 	var lemming_epoch_map = world.epoch_map.get_epoch_map_from_epoch_enum(own_epoch)
 	if not lemming_epoch_map.is_on_tile(self):
 		self.die()
