@@ -83,7 +83,7 @@ func set_current_epoch_from_epoch_enum(epoch: Globals.Epoch):
 		if epoch_tile_map.epoch == epoch:
 			current_epoch = i
 			return
-	assert(false,"starting_epoch does not exist in world!")
+	assert(false, "starting_epoch does not exist in world!")
 
 
 func get_current_epoch()->int:

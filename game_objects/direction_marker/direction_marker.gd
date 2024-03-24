@@ -18,7 +18,7 @@ extends Area2D
 				Globals.Direction.NW: Vector2(1, 2),
 			}[new_direction]
 			
-func _ready():
+func register_itself_on_epoch_tile_map():
 	var parent = get_parent()
 	if parent.is_in_group("epoch_tile_map"):
 		parent.register_direction_marker(self, Globals.direction_to_vec(direction))

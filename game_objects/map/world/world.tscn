@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=10 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
-[ext_resource type="Texture2D" uid="uid://cv2xw4py7cjoj" path="res://art/cloud_pixel_art_bg.png" id="3_ni841"]
+[ext_resource type="Texture2D" uid="uid://dy433uksrovrq" path="res://game_objects/map/world/future.png" id="2_3c4l1"]
+[ext_resource type="Texture2D" uid="uid://y0vacm8vngyx" path="res://game_objects/map/world/past.png" id="3_ub8l8"]
 [ext_resource type="Texture2D" uid="uid://bcu78ul68ovsf" path="res://ui_scenes/button_textures/button_07_frame.png" id="4_wpw3v"]
 [ext_resource type="Script" path="res://game_objects/map/world/ItemSelections.gd" id="5_d12mu"]
 [ext_resource type="Texture2D" uid="uid://ckq0eagsblw2t" path="res://ui_scenes/ingame/item_selection/item/9.PNG" id="6_qh0nf"]
@@ -16,10 +17,20 @@ starting_epoch = 0
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.7, 0.7)
 
-[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+[node name="BackgroundPresent" type="Sprite2D" parent="Camera2D"]
 modulate = Color(0.4, 0.4, 0.4, 1)
 z_index = -100
-texture = ExtResource("3_ni841")
+texture = ExtResource("2_3c4l1")
+
+[node name="BackgroundPast" type="Sprite2D" parent="Camera2D"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+z_index = -100
+texture = ExtResource("3_ub8l8")
+
+[node name="BackgroundFuture" type="Sprite2D" parent="Camera2D"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+z_index = -100
+texture = ExtResource("2_3c4l1")
 
 [node name="EpochMap" parent="." instance=ExtResource("1_uahcf")]
 position = Vector2(0, -150)
@@ -107,6 +118,7 @@ offset_bottom = 40.0
 texture = ExtResource("8_xgawv")
 expand_mode = 1
 
+[connection signal="epoch_changed" from="EpochMap" to="." method="_on_epoch_map_epoch_changed"]
 [connection signal="pressed" from="CanvasLayer/TextureButton" to="EpochMap" method="blend_to_previous"]
 [connection signal="pressed" from="CanvasLayer/TextureButton2" to="EpochMap" method="blend_to_next"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]

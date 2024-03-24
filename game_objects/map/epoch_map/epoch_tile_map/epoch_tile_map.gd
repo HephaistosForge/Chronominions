@@ -99,7 +99,7 @@ func is_on_fence(node: Node2D) -> bool:
 func new_direction_if_on_direction_marker(node: Node2D):
 	var tile_coord = _node_to_tile_coord(node)
 	if tile_coord in direction_markers:
-		if map_to_local(tile_coord).distance_to(_node_to_local_coord(node)) < .1:
+		if map_to_local(tile_coord).distance_to(_node_to_local_coord(node)) < 1:
 			return direction_markers[tile_coord]
 	return null
 
@@ -107,6 +107,8 @@ func new_direction_if_on_direction_marker(node: Node2D):
 func destroy_rock(tile_position: Vector2):
 	signal_destroy_rock.emit(epoch, tile_position)
 	#set_cell(0, tile_position, 3, Vector2(6, 5), 0)
+	
+	
 func on_destroy_rock(_epoch: Globals.Epoch, tile_position: Vector2):
 	if epoch >= _epoch:
 		set_cell(0, tile_position, 3, Vector2(6, 5), 0)
@@ -115,6 +117,8 @@ func on_destroy_rock(_epoch: Globals.Epoch, tile_position: Vector2):
 func remove_water(tile_position: Vector2):
 	signal_remove_water.emit(epoch, tile_position)
 	#set_cell(0, tile_position, 3, Vector2(6, 1), 0)
+	
+	
 func on_remove_water(_epoch: Globals.Epoch, tile_position: Vector2):
 	if epoch >= _epoch:
 		set_cell(0, tile_position, 3, Vector2(6, 1), 0)
@@ -131,6 +135,7 @@ func place_marker(tile_position: Vector2, direction: Globals.Direction):
 	self.add_child(marker)
 	marker.direction = direction
 	marker.global_position = to_global(map_to_local(tile_position))
+	marker.register_itself_on_epoch_tile_map()
 	objects_on_tiles[tile_position] = marker
 
 
@@ -145,6 +150,8 @@ func place_portal(tile_position: Vector2, portal_epoch: Globals.Epoch, portal_sc
 
 func place_fence(tile_position: Vector2, fence_scene: PackedScene):
 	signal_place_fence.emit(epoch, tile_position, fence_scene)
+	
+	
 func on_place_fence(_epoch: Globals.Epoch, tile_position: Vector2, fence_scene: PackedScene):
 	if epoch >= _epoch:
 		var fence = fence_scene.instantiate()
