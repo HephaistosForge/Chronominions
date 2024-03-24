@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://ccq8oncdltvi6"]
 
-[ext_resource type="Texture2D" uid="uid://hy0fgtaqk61a" path="res://icon.svg" id="1_ht2lj"]
 [ext_resource type="Script" path="res://game_objects/pickups/pickup_area.gd" id="1_rxdvg"]
+[ext_resource type="Texture2D" uid="uid://b2ddt7nleodbu" path="res://game_objects/pickups/shovel.png" id="2_t3dio"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o56gl"]
+radius = 2.0
 
 [node name="ShovelPickup" type="Area2D"]
 script = ExtResource("1_rxdvg")
@@ -11,7 +12,7 @@ script = ExtResource("1_rxdvg")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.0784314, 0.231373, 0, 1)
 scale = Vector2(0.11, 0.11)
-texture = ExtResource("1_ht2lj")
+texture = ExtResource("2_t3dio")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_o56gl")

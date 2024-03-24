@@ -20,3 +20,7 @@ func _ready():
 
 func _on_menu_button_pressed() -> void:
 	get_tree().reload_current_scene()
+
+
+func add_pickup(type: Globals.ItemType, epoch) -> void:
+	item_selections.add_item(type, epoch)

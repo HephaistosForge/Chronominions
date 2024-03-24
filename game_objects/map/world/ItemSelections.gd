@@ -48,6 +48,15 @@ func generate_item_selection(item_list):
 	return item_selection
 
 
+func _add_item_to_epoch_list(item_type: Globals.ItemType, epoch: Globals.Epoch):
+	match epoch:
+		Globals.Epoch.PAST:
+			past_item_selection.increase_item_count(item_type, 1)
+		Globals.Epoch.PRESENT:
+			present_item_selection.increase_item_count(item_type, 1)
+		Globals.Epoch.FUTURE:
+			future_item_selection.increase_item_count(item_type, 1)
+
 func set_active_item_list(epoch: Globals.Epoch):
 	match epoch:
 		Globals.Epoch.PAST:
