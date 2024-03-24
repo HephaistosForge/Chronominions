@@ -60,6 +60,7 @@ layer_0/tile_data = PackedInt32Array(327678, 655363, 5, 262141, 3, 6, 196605, 58
 
 [node name="LemmingSpawner" parent="World/EpochMap/Past" instance=ExtResource("4_usi3d")]
 position = Vector2(-96.25, 0.375)
+lemming_population = 20
 init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Past" instance=ExtResource("5_gb86q")]

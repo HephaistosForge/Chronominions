@@ -98,6 +98,7 @@ partner = NodePath("../TeleporterA")
 
 [node name="LemmingSpawner" parent="World/EpochMap/Future" instance=ExtResource("4_rjjc5")]
 position = Vector2(-96.5, 0.875)
+lemming_population = 100
 init_direction = 3
 
 [node name="LemmingDespawner" parent="World/EpochMap/Future" instance=ExtResource("5_xppqw")]
