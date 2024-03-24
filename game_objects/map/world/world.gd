@@ -34,3 +34,6 @@ func _on_epoch_map_epoch_changed(new_epoch):
 		var background = EPOCH_TO_BACKGROUND_IMAGE[epoch]
 		background.visible = false
 	EPOCH_TO_BACKGROUND_IMAGE[new_epoch].visible = true
+
+func add_pickup(type: Globals.ItemType, epoch) -> void:
+	item_selections.add_item(type, epoch)

@@ -14,32 +14,32 @@ bombs = 0
 shovels = 0
 fences = 0
 portal_past = 0
-portal_present = 0
+portal_present = 1
 portal_future = 0
 
 [sub_resource type="Resource" id="Resource_4yggu"]
 script = ExtResource("2_spwbf")
-direction_nw = 0
-direction_ne = 0
-direction_sw = 0
-direction_se = 0
+direction_nw = 2
+direction_ne = 2
+direction_sw = 2
+direction_se = 2
 bombs = 0
 shovels = 0
 fences = 0
 portal_past = 0
 portal_present = 0
-portal_future = 0
+portal_future = 1
 
 [sub_resource type="Resource" id="Resource_fgyuh"]
 script = ExtResource("2_spwbf")
-direction_nw = 0
-direction_ne = 0
-direction_sw = 0
-direction_se = 0
+direction_nw = 2
+direction_ne = 2
+direction_sw = 2
+direction_se = 2
 bombs = 0
 shovels = 0
 fences = 0
-portal_past = 0
+portal_past = 1
 portal_present = 0
 portal_future = 0
 

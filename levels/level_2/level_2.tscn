@@ -20,9 +20,9 @@ portal_future = 0
 [sub_resource type="Resource" id="Resource_g76qp"]
 script = ExtResource("2_ya7gn")
 direction_nw = 0
-direction_ne = 0
+direction_ne = 1
 direction_sw = 0
-direction_se = 0
+direction_se = 2
 bombs = 0
 shovels = 0
 fences = 0

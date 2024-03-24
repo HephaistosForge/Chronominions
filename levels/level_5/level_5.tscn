@@ -21,26 +21,26 @@ portal_future = 0
 script = ExtResource("2_i4yl4")
 direction_nw = 0
 direction_ne = 0
-direction_sw = 0
+direction_sw = 1
 direction_se = 0
 bombs = 0
 shovels = 0
 fences = 0
 portal_past = 0
 portal_present = 0
-portal_future = 0
+portal_future = 1
 
 [sub_resource type="Resource" id="Resource_ir3s7"]
 script = ExtResource("2_i4yl4")
 direction_nw = 0
 direction_ne = 0
 direction_sw = 0
-direction_se = 0
+direction_se = 1
 bombs = 0
 shovels = 0
 fences = 0
 portal_past = 0
-portal_present = 0
+portal_present = 1
 portal_future = 0
 
 [node name="Level5" type="Node2D"]

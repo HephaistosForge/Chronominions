@@ -28,7 +28,7 @@ shovels = 0
 fences = 0
 portal_past = 0
 portal_present = 0
-portal_future = 0
+portal_future = 1
 
 [sub_resource type="Resource" id="Resource_luagw"]
 script = ExtResource("2_5d0hi")
@@ -46,6 +46,7 @@ portal_future = 0
 [node name="Level4" type="Node2D"]
 
 [node name="World" parent="." instance=ExtResource("1_jdmwe")]
+starting_epoch = 1
 past_items = SubResource("Resource_oubib")
 present_items = SubResource("Resource_1rtp1")
 future_items = SubResource("Resource_luagw")
