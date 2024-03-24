@@ -1,6 +1,8 @@
 extends Node2D
 
 const WIN_POPUP_PREFAB = preload("res://ui_scenes/ingame/win_popup/win_popup.tscn")
+const INGAME_MENU_PREFAB = preload("res://ui_scenes/ingame/win_popup/ingame_menu_popup/ingame_menu_popup.tscn")
+
 
 @onready var epoch_map = $EpochMap
 @onready var item_selections = $CanvasLayer/ItemSelections
@@ -39,7 +41,8 @@ func _ready():
 	
 
 func _on_menu_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	var popup = INGAME_MENU_PREFAB.instantiate()
+	self.add_child(popup)
 
 
 func _on_cheat_button_pressed() -> void:
