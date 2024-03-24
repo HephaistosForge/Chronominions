@@ -1,22 +1,18 @@
-@tool
 extends Area2D
+
+@onready var direction_to_marker_texture = {
+	Globals.Direction.NE: preload("res://game_objects/direction_marker/marker_ne.png"),
+	Globals.Direction.SE: preload("res://game_objects/direction_marker/marker_se.png"),
+	Globals.Direction.SW: preload("res://game_objects/direction_marker/marker_sw.png"),
+	Globals.Direction.NW: preload("res://game_objects/direction_marker/marker_nw.png"),
+}
 
 @export var direction: Globals.Direction = Globals.Direction.NW:
 	set(new_direction):
 		direction = new_direction
 		for sprite_node in [$Sprite, $Shadow]:
-			sprite_node.rotation = deg_to_rad({
-				Globals.Direction.NE: 0,
-				Globals.Direction.SE: 90,
-				Globals.Direction.SW: 180,
-				Globals.Direction.NW: 270,
-			}[new_direction])
-			sprite_node.scale = {
-				Globals.Direction.NE: Vector2(2, 1),
-				Globals.Direction.SE: Vector2(1, 2),
-				Globals.Direction.SW: Vector2(2, 1),
-				Globals.Direction.NW: Vector2(1, 2),
-			}[new_direction]
+			sprite_node.texture = direction_to_marker_texture[direction]
+
 			
 func register_itself_on_epoch_tile_map():
 	var parent = get_parent()

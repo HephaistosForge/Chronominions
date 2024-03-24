@@ -2,6 +2,12 @@ extends TileMap
 
 @export var epoch : Globals.Epoch
 
+const EPOCH_TO_MODULATE = {
+	Globals.Epoch.PAST: Color(1.2, 1.2, .8),
+	Globals.Epoch.PRESENT: Color(1.5, 1, 1),
+	Globals.Epoch.FUTURE: Color(1.2, 1.2, 1.7)
+}
+
 var objects_on_tiles: Dictionary = {}
 
 var fences: Dictionary = {}
@@ -18,6 +24,9 @@ signal signal_place_fence(epoch: Globals.Epoch, tile_position: Vector2, fence_sc
 signal signal_place_marker(epoch: Globals.Epoch, tile_position: Vector2, direction: Globals.Direction)
 
 var selector
+
+func _ready():
+	self.modulate = EPOCH_TO_MODULATE[epoch]
 
 func _input(event: InputEvent) -> void:
 	var mouse_pos = get_global_mouse_position()
