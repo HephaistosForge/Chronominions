@@ -1,6 +1,6 @@
 extends PanelContainer
 
-
+const MAIN_MENU_PREFAB = preload("res://ui_scenes/main_menu/main_menu.tscn")
 
 func configure_popup(won: bool, minions_rescued: int, minions_total: int):
 	$"MarginContainer/VBoxContainer/HBoxContainer/You won".text = "You won!" if won else "You lost!"
@@ -9,8 +9,13 @@ func configure_popup(won: bool, minions_rescued: int, minions_total: int):
 
 
 func _on_main_menu_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_packed(MAIN_MENU_PREFAB)
 
 
 func _on_next_level_pressed():
-	pass # Replace with function body.
+	var current_level = get_tree().get_current_scene().get_name()
+	var next_level = "level_" + str(int(current_level.lstrip("Level")) + 1)
+	next_level = next_level + "/" + next_level + ".tscn"
+	print("res://levels/" + next_level)
+	var next_level_prefab = load("res://levels/" + next_level)
+	get_tree().change_scene_to_packed(next_level_prefab)
