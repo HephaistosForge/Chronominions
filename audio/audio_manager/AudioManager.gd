@@ -1,6 +1,6 @@
 extends Node
 
-const background_music_past: Array = [
+var background_music_past: Array = [
 	preload("res://audio/music/background_music_past.ogg")
 ]
 
@@ -8,7 +8,7 @@ const background_music_present: Array = [
 	preload("res://audio/music/background_music_present.ogg")
 ]
 
-const background_music_future: Array = [
+var background_music_future: Array = [
 	preload("res://audio/music/background_music_future.ogg")
 ]
 	
@@ -26,7 +26,7 @@ const button_hover: Array = [
 	
 ]
 
-var music_volume: float = 0
+var music_volume: float = 50
 var sound_volume: float = 50
 var current_player: AudioStreamPlayer
 
@@ -69,31 +69,33 @@ func play_button_click() -> void:
 # HELPER
 func set_sound_volume(percent:float) -> void:
 	sound_volume = percent
-	
-	
-func set_music_volume(percent:float, player: AudioStreamPlayer) -> void:
+
+
+func set_music_volume(percent:float) -> void:
 	music_volume = percent
 
 
 func set_player_volume_db(percent: float, player: AudioStreamPlayer):
-	player.volume_db = linear_to_db((float(music_volume)/100.0))
-	player.volume_db = percent
+	#player.volume_db = linear_to_db((float(music_volume)/100.0))
+	player.volume_db = log(percent/100.0+exp(-80))*10
+	print(percent, "is", player.volume_db)
+
 
 func set_primary_player(epoch: Globals.Epoch):
 	match epoch:
 		Globals.Epoch.PAST:
 			set_player_volume_db(music_volume, background_past_player)
-			set_player_volume_db(-100, background_present_player)
-			set_player_volume_db(-100, background_future_player)
+			set_player_volume_db(0, background_present_player)
+			set_player_volume_db(0, background_future_player)
 			current_player = background_past_player
 		Globals.Epoch.PRESENT:
-			set_player_volume_db(-100, background_past_player)
+			set_player_volume_db(0, background_past_player)
 			set_player_volume_db(music_volume, background_present_player)
-			set_player_volume_db(-100, background_future_player)
+			set_player_volume_db(0, background_future_player)
 			current_player = background_present_player
 		Globals.Epoch.FUTURE:
-			set_player_volume_db(-100, background_past_player)
-			set_player_volume_db(-100, background_present_player)
+			set_player_volume_db(0, background_past_player)
+			set_player_volume_db(0, background_present_player)
 			set_player_volume_db(music_volume, background_future_player)
 			current_player = background_future_player
 
