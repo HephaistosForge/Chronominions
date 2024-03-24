@@ -13,9 +13,16 @@ script = ExtResource("1_586u5")
 epoch = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
-position = Vector2(5, -1.75)
+position = Vector2(2, -5.75)
 shape = SubResource("RectangleShape2D_ghwmn")
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+[node name="Shadow" type="Sprite2D" parent="Node2D"]
+modulate = Color(0.247059, 0.247059, 0.247059, 0.517647)
+position = Vector2(-3, -3)
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("2_xi47y")
-metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+position = Vector2(-3, -4)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_xi47y")
