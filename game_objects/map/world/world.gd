@@ -29,6 +29,12 @@ func _on_menu_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 
+func _on_cheat_button_pressed() -> void:
+	for x in 9:
+		for y in 2:
+			add_pickup(x, y)
+
+
 func _on_epoch_map_epoch_changed(new_epoch):
 	for epoch in EPOCH_TO_BACKGROUND_IMAGE:
 		var background = EPOCH_TO_BACKGROUND_IMAGE[epoch]

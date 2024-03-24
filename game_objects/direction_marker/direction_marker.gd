@@ -1,10 +1,10 @@
 extends Area2D
 
 @onready var direction_to_marker_texture = {
-	Globals.Direction.NE: preload("res://game_objects/direction_marker/marker_ne.png"),
-	Globals.Direction.SE: preload("res://game_objects/direction_marker/marker_se.png"),
-	Globals.Direction.SW: preload("res://game_objects/direction_marker/marker_sw.png"),
-	Globals.Direction.NW: preload("res://game_objects/direction_marker/marker_nw.png"),
+	Globals.Direction.NE: preload("res://game_objects/direction_marker/marker_ne_3.png"),
+	Globals.Direction.SE: preload("res://game_objects/direction_marker/marker_se_3.png"),
+	Globals.Direction.SW: preload("res://game_objects/direction_marker/marker_sw_3.png"),
+	Globals.Direction.NW: preload("res://game_objects/direction_marker/marker_nw_3.png"),
 }
 
 @export var direction: Globals.Direction = Globals.Direction.NW:

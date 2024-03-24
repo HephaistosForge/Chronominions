@@ -58,14 +58,10 @@ layer_0/tile_data = PackedInt32Array(-5, 393219, 2, 65532, 3, 3, 131068, 589827,
 epoch = 1
 
 [node name="LemmingSpawner" parent="World/EpochMap/Present" instance=ExtResource("4_p1qur")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-63, 32.125)
+position = Vector2(-65.875, 33.375)
 init_direction = 1
 
 [node name="LemmingDespawner" parent="World/EpochMap/Present" instance=ExtResource("5_igm18")]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(62.75, -34)
+position = Vector2(64.125, -43.375)
 
 [editable path="World"]
