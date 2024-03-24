@@ -36,7 +36,13 @@ func _ready():
 	var finish = get_tree().get_first_node_in_group("finish")
 	if finish:
 		finish.lemming_despawn.connect(_on_lemming_despawn)
-	
+		
+		
+func _unhandled_input(event):
+	if event is InputEventKey and event.pressed and event.keycode == KEY_SPACE:
+		Engine.time_scale = 5.0
+	else:
+		Engine.time_scale = 1.0
 
 func _on_menu_button_pressed() -> void:
 	get_tree().reload_current_scene()
