@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://iup344dbdef3"]
+[gd_scene load_steps=13 format=3 uid="uid://iup344dbdef3"]
 
 [ext_resource type="Script" path="res://game_objects/map/world/world.gd" id="1_a2ek4"]
 [ext_resource type="PackedScene" uid="uid://df6x0nfos3bkv" path="res://game_objects/map/epoch_map/epoch_map.tscn" id="1_uahcf"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://ckq0eagsblw2t" path="res://ui_scenes/ingame/item_selection/item/9.PNG" id="6_qh0nf"]
 [ext_resource type="Texture2D" uid="uid://cn1x7tc6lgwqa" path="res://ui_scenes/ingame/item_selection/item/map_01_01.png" id="7_tkw5u"]
 [ext_resource type="Texture2D" uid="uid://df8hsbe33fml0" path="res://ui_scenes/ingame/item_selection/item/map_01_02.png" id="8_xgawv"]
+[ext_resource type="Texture2D" uid="uid://dpaa7s5b30hu8" path="res://ui_scenes/slider_textures/slider_bg.png" id="10_vdrwh"]
+[ext_resource type="Texture2D" uid="uid://bkjirk2lllmso" path="res://ui_scenes/slider_textures/slider_handle.png" id="11_jayef"]
+[ext_resource type="Script" path="res://game_objects/map/world/time_slider_handle.gd" id="12_8607s"]
 
 [node name="World" type="Node2D" groups=["world"]]
 script = ExtResource("1_a2ek4")
@@ -98,6 +101,7 @@ theme_override_constants/margin_bottom = 175
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
+tooltip_text = "go back in time"
 texture_normal = ExtResource("4_wpw3v")
 ignore_texture_size = true
 stretch_mode = 4
@@ -119,12 +123,57 @@ theme_override_constants/margin_bottom = 175
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 size_flags_horizontal = 0
+tooltip_text = "go forward in time"
 texture_normal = ExtResource("4_wpw3v")
 ignore_texture_size = true
 stretch_mode = 4
 flip_h = true
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+offset_left = 23.0
+offset_top = 44.0
+offset_right = 536.0
+offset_bottom = 123.0
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+text = "Epoch"
+horizontal_alignment = 1
+
+[node name="Slider" type="TextureRect" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 25)
+layout_mode = 2
+texture = ExtResource("10_vdrwh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Past"
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Present"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "Future"
+horizontal_alignment = 2
+
+[node name="SliderHandle" type="Sprite2D" parent="CanvasLayer/VBoxContainer"]
+position = Vector2(486, 53)
+scale = Vector2(0.0787037, 0.231482)
+texture = ExtResource("11_jayef")
+script = ExtResource("12_8607s")
+
 [connection signal="epoch_changed" from="EpochMap" to="." method="_on_epoch_map_epoch_changed"]
+[connection signal="epoch_changed" from="EpochMap" to="CanvasLayer/VBoxContainer/SliderHandle" method="_on_epoch_map_epoch_changed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer/MenuButton" to="." method="_on_menu_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer2/TextureButton" to="EpochMap" method="blend_to_previous"]
 [connection signal="pressed" from="CanvasLayer/MarginContainer3/TextureButton2" to="EpochMap" method="blend_to_next"]

@@ -4,7 +4,7 @@ var current_epoch = 0
 
 @onready var available_epochs: Array
 
-signal epoch_changed
+signal epoch_changed(epoch: Globals.Epoch)
 
 func _ready() -> void:
 	available_epochs = get_children()
